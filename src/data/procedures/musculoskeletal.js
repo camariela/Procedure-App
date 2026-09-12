@@ -6,6 +6,7 @@ export default defineProcedures('musculoskeletal', [
     name: 'Anterior Shoulder Reduction',
     aka: ['shoulder relocation', 'glenohumeral dislocation', 'Cunningham', 'scapular manipulation'],
     acuity: 'urgent',
+    frequency: 'frequent',
     summary:
       'Relocation of an anteriorly dislocated glenohumeral joint, favouring gentle traction-free techniques first.',
     video: {
@@ -59,6 +60,7 @@ export default defineProcedures('musculoskeletal', [
     name: 'Knee Arthrocentesis',
     aka: ['joint aspiration', 'knee tap', 'septic arthritis workup'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Needle aspiration of the knee joint to diagnose septic arthritis and crystal disease, or to relieve a tense effusion.',
     video: {
@@ -112,6 +114,7 @@ export default defineProcedures('musculoskeletal', [
     name: 'Compartment Pressure Measurement',
     aka: ['Stryker', 'intracompartmental pressure', 'compartment syndrome'],
     acuity: 'emergent',
+    frequency: 'halo',
     summary:
       'Needle manometry of a muscle compartment when compartment syndrome is suspected but the examination is unreliable.',
     video: {

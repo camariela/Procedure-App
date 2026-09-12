@@ -6,6 +6,7 @@ export default defineProcedures('vascular-access', [
     name: 'Central Venous Catheterisation',
     aka: ['central line', 'CVC', 'internal jugular line', 'subclavian line'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Ultrasound-guided Seldinger placement of a large-bore catheter into a central vein.',
     video: {
@@ -71,6 +72,7 @@ export default defineProcedures('vascular-access', [
     name: 'Intraosseous Access',
     aka: ['IO', 'EZ-IO', 'bone drill'],
     acuity: 'emergent',
+    frequency: 'occasional',
     summary:
       'Drill-placed needle into the medullary cavity giving immediate central-equivalent access when veins fail.',
     video: {
@@ -125,6 +127,7 @@ export default defineProcedures('vascular-access', [
     name: 'Ultrasound-Guided Peripheral IV',
     aka: ['USGPIV', 'deep brachial cannula', 'difficult IV access'],
     acuity: 'routine',
+    frequency: 'frequent',
     summary:
       'Linear-probe guided cannulation of a deep forearm or upper arm vein in a patient with no visible or palpable targets.',
     video: {

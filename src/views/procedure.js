@@ -7,7 +7,7 @@ import { html } from '../lib/dom.js';
 import { href } from '../lib/router.js';
 import { procedureById, systemById } from '../data/index.js';
 import { SECTIONS, sectionById } from '../components/sections.js';
-import { acuityBadge, reviewBadge } from '../components/badges.js';
+import { acuityBadge, haloBadge, reviewBadge } from '../components/badges.js';
 import { icon } from '../components/icons.js';
 import { notFoundView } from './not-found.js';
 
@@ -46,7 +46,8 @@ export const procedureView = ({ captured, params }) => {
       <h1 class="page-head__title">${procedure.name}</h1>
       <p class="page-head__sub">${procedure.summary}</p>
       <p class="badges">
-        ${acuityBadge(procedure.acuity)} ${reviewBadge(procedure.verified)}
+        ${haloBadge(procedure.frequency)} ${acuityBadge(procedure.acuity)}
+        ${reviewBadge(procedure.verified)}
       </p>
     </header>
     ${tabs(procedure, section.id)}

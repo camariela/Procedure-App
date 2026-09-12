@@ -6,6 +6,7 @@ export default defineProcedures('airway', [
     name: 'Rapid Sequence Intubation',
     aka: ['RSI', 'orotracheal intubation', 'endotracheal intubation'],
     acuity: 'emergent',
+    frequency: 'frequent',
     summary:
       'Near-simultaneous sedative and paralytic to create optimal conditions for laryngoscopy and cuffed tube placement.',
     video: {
@@ -72,6 +73,7 @@ export default defineProcedures('airway', [
     name: 'Surgical Cricothyrotomy',
     aka: ['cric', 'front of neck access', 'FONA', 'emergency surgical airway'],
     acuity: 'emergent',
+    frequency: 'halo',
     summary:
       'Definitive airway through the cricothyroid membrane when you cannot intubate and cannot oxygenate.',
     video: {
@@ -129,6 +131,7 @@ export default defineProcedures('airway', [
     name: 'Supraglottic Airway Insertion',
     aka: ['LMA', 'laryngeal mask airway', 'i-gel', 'rescue airway'],
     acuity: 'emergent',
+    frequency: 'occasional',
     summary:
       'Blindly seated periglottic device that gives a rapid, reliable airway when bagging is failing or intubation has not worked.',
     video: {

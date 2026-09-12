@@ -641,3 +641,45 @@
     transition: none !important;
   }
 }
+
+/* ---- HALO ---- */
+
+.badge--halo {
+  background: var(--danger);
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+.card__badges {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: none;
+}
+
+.section__note {
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--ink-faint);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.section__lead {
+  margin-top: calc(var(--sp-2) * -1);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  max-width: 34rem;
+}
+
+/* Rehearsal set reads as its own band, not another list of links. */
+.section--halo {
+  padding: var(--sp-4);
+  margin: 0 calc(var(--sp-4) * -1);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--danger-soft) 0%, transparent 72%);
+}
+
+.section--halo .card {
+  border-left-color: var(--danger);
+}

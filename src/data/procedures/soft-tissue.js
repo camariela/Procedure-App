@@ -6,6 +6,7 @@ export default defineProcedures('soft-tissue', [
     name: 'Abscess Incision and Drainage',
     aka: ['I and D', 'abscess drainage', 'boil'],
     acuity: 'urgent',
+    frequency: 'frequent',
     summary:
       'Incision, loculation breakdown and drainage of a walled-off soft tissue collection.',
     video: {
@@ -64,6 +65,7 @@ export default defineProcedures('soft-tissue', [
     name: 'Laceration Repair',
     aka: ['suturing', 'wound closure', 'stitches'],
     acuity: 'routine',
+    frequency: 'frequent',
     summary:
       'Exploration, irrigation and layered closure of a traumatic wound.',
     video: {

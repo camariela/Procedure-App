@@ -6,6 +6,7 @@ export default defineProcedures('cardiovascular', [
     name: 'Pericardiocentesis',
     aka: ['pericardial drainage', 'tamponade drainage'],
     acuity: 'emergent',
+    frequency: 'halo',
     summary:
       'Ultrasound-guided needle drainage of pericardial fluid to relieve tamponade physiology.',
     video: {
@@ -67,6 +68,7 @@ export default defineProcedures('cardiovascular', [
     name: 'Synchronised Cardioversion',
     aka: ['DC cardioversion', 'electrical cardioversion', 'shock the tachycardia'],
     acuity: 'emergent',
+    frequency: 'occasional',
     summary:
       'Shock delivered on the R wave to terminate an unstable organised tachydysrhythmia.',
     video: {
@@ -120,6 +122,7 @@ export default defineProcedures('cardiovascular', [
     name: 'Transcutaneous Pacing',
     aka: ['external pacing', 'TCP'],
     acuity: 'emergent',
+    frequency: 'halo',
     summary:
       'External electrical capture of the ventricle as a bridge in symptomatic bradycardia.',
     video: {

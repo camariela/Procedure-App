@@ -6,6 +6,7 @@ export default defineProcedures('genitourinary', [
     name: 'Difficult Urinary Catheterisation',
     aka: ['Foley', 'urethral catheter', 'coude catheter', 'bladder catheterisation'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Staged approach to draining an obstructed bladder when a standard catheter will not pass.',
     video: {
@@ -59,6 +60,7 @@ export default defineProcedures('genitourinary', [
     name: 'Paraphimosis Reduction',
     aka: ['trapped foreskin', 'paraphimosis'],
     acuity: 'emergent',
+    frequency: 'occasional',
     summary:
       'Manual reduction of a retracted, oedematous foreskin trapped proximal to the glans.',
     video: {

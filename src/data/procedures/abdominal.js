@@ -6,6 +6,7 @@ export default defineProcedures('abdominal', [
     name: 'Paracentesis',
     aka: ['abdominal tap', 'ascitic tap', 'peritoneal drainage'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Ultrasound-guided needle drainage of ascites for diagnosis of peritonitis or relief of tense abdominal distension.',
     video: {
@@ -61,6 +62,7 @@ export default defineProcedures('abdominal', [
     name: 'Nasogastric Tube Insertion',
     aka: ['NG tube', 'gastric decompression', 'Ryles tube'],
     acuity: 'urgent',
+    frequency: 'frequent',
     summary:
       'Tube passed through the nose into the stomach for decompression, lavage or feeding.',
     video: {

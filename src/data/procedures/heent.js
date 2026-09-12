@@ -6,6 +6,7 @@ export default defineProcedures('heent', [
     name: 'Lateral Canthotomy and Cantholysis',
     aka: ['orbital compartment syndrome', 'retrobulbar haematoma release'],
     acuity: 'emergent',
+    frequency: 'halo',
     summary:
       'Sight-saving release of the lateral canthal tendon to decompress an orbital compartment syndrome.',
     video: {
@@ -53,6 +54,7 @@ export default defineProcedures('heent', [
     name: 'Epistaxis Management',
     aka: ['nosebleed', 'nasal packing', 'anterior packing', 'posterior packing'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Stepwise control of anterior and posterior nasal bleeding, from pressure through cautery to packing.',
     video: {
@@ -106,6 +108,7 @@ export default defineProcedures('heent', [
     name: 'Peritonsillar Abscess Drainage',
     aka: ['quinsy drainage', 'PTA aspiration'],
     acuity: 'urgent',
+    frequency: 'occasional',
     summary:
       'Needle aspiration or incision of a peritonsillar collection to relieve trismus, odynophagia and airway narrowing.',
     video: {

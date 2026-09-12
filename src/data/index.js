@@ -58,3 +58,9 @@ export const SYSTEM_INDEX = SYSTEMS.map((system) => ({
 }));
 
 export { SYSTEMS, systemById };
+
+/**
+ * High acuity, low occurrence — the procedures rare enough that you will be
+ * rusty and unforgiving enough that rust kills. The set worth rehearsing cold.
+ */
+export const HALO_PROCEDURES = PROCEDURES.filter((procedure) => procedure.frequency === 'halo');

@@ -6,6 +6,7 @@ export default defineProcedures('neurologic', [
     name: 'Lumbar Puncture',
     aka: ['LP', 'spinal tap', 'CSF sampling'],
     acuity: 'urgent',
+    frequency: 'frequent',
     summary:
       'Needle sampling of cerebrospinal fluid from the lumbar cistern for diagnosis or pressure measurement.',
     video: {

@@ -6,6 +6,7 @@ export default defineProcedures('analgesia', [
     name: 'Procedural Sedation and Analgesia',
     aka: ['PSA', 'conscious sedation', 'ketamine sedation'],
     acuity: 'urgent',
+    frequency: 'frequent',
     summary:
       'Titrated sedation and analgesia to allow a painful or distressing procedure while preserving airway reflexes where possible.',
     video: {
@@ -60,6 +61,7 @@ export default defineProcedures('analgesia', [
     name: 'Digital Nerve Block',
     aka: ['ring block', 'finger block', 'transthecal block'],
     acuity: 'routine',
+    frequency: 'frequent',
     summary:
       'Anaesthesia of a single digit by blocking its paired dorsal and palmar digital nerves.',
     video: {

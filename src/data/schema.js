@@ -6,6 +6,10 @@
  * @property {string}   name            Display name.
  * @property {string[]} [aka]           Alternative names, used by search.
  * @property {'emergent'|'urgent'|'routine'} acuity
+ * @property {'halo'|'occasional'|'frequent'} frequency
+ *                                  How often one clinician actually does this. HALO —
+ *                                  high acuity, low occurrence — is the rehearsal set:
+ *                                  rare enough to forget, unforgiving enough to matter.
  * @property {string}   summary         One line: what this is and when it is reached for.
  * @property {{id: string, title: string, checked?: boolean}} [video]
  *                                  Video source; defaults to the shared placeholder.
@@ -23,7 +27,9 @@
 
 import { PLACEHOLDER_VIDEO } from './config.js';
 
-const REQUIRED = ['id', 'name', 'acuity', 'summary', 'equipment', 'indications', 'steps'];
+const REQUIRED = ['id', 'name', 'acuity', 'frequency', 'summary', 'equipment', 'indications', 'steps'];
+
+const FREQUENCIES = ['halo', 'occasional', 'frequent'];
 
 const DEFAULTS = {
   aka: [],
@@ -42,6 +48,11 @@ export const defineProcedures = (systemId, procedures) =>
     const missing = REQUIRED.filter((field) => procedure[field] === undefined);
     if (missing.length) {
       throw new Error(`Procedure "${procedure.id ?? '?'}" is missing: ${missing.join(', ')}`);
+    }
+    if (!FREQUENCIES.includes(procedure.frequency)) {
+      throw new Error(
+        `Procedure "${procedure.id}" has frequency "${procedure.frequency}"; expected one of ${FREQUENCIES.join(', ')}`,
+      );
     }
     const video = { checked: false, ...(procedure.video ?? PLACEHOLDER_VIDEO) };
     return { ...DEFAULTS, ...procedure, video, systemId };

@@ -24,6 +24,15 @@ export const reviewBadge = (verified) =>
     : html`<span class="badge badge--draft">Draft &middot; not clinically reviewed</span>`;
 
 /**
+ * High acuity, low occurrence. Shown only for HALO — the other two frequencies
+ * are the normal case and do not need calling out.
+ */
+export const haloBadge = (frequency) =>
+  frequency === 'halo'
+    ? html`<span class="badge badge--halo" title="High acuity, low occurrence">HALO</span>`
+    : '';
+
+/**
  * Video provenance, on the same honesty footing as the clinical draft badge:
  * a sourced video is not a checked one until somebody has watched it.
  */
