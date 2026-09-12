@@ -1,0 +1,146 @@
+import { defineProcedures } from '../schema.js';
+
+export default defineProcedures('heent', [
+  {
+    id: 'lateral-canthotomy',
+    name: 'Lateral Canthotomy and Cantholysis',
+    aka: ['orbital compartment syndrome', 'retrobulbar haematoma release'],
+    acuity: 'emergent',
+    summary:
+      'Sight-saving release of the lateral canthal tendon to decompress an orbital compartment syndrome.',
+    equipment: [
+      { item: 'Lidocaine 1% with adrenaline, 25 G needle, 3 mL syringe' },
+      { item: 'Straight haemostat' },
+      { item: 'Iris or straight scissors' },
+      { item: 'Toothed forceps' },
+      { item: 'Sterile gloves, saline, gauze' },
+      { item: 'Tonometer', detail: 'Tono-Pen or iCare to document intraocular pressure', optional: true },
+      { item: 'Eye shield for afterwards' },
+    ],
+    indications: [
+      'Orbital compartment syndrome: acute proptosis with vision loss, a relative afferent pupillary defect, and intraocular pressure above 40 mmHg',
+      'Retrobulbar haemorrhage after trauma, surgery or a retrobulbar block',
+      'Rapidly progressive proptosis with an eye that is tight to retropulsion and a failing afferent pupil',
+    ],
+    contraindications: {
+      absolute: ['Suspected globe rupture — pressure on the globe will extrude contents'],
+      relative: ['Coagulopathy (proceed anyway if vision is threatened — the eye has 60-120 minutes)'],
+    },
+    steps: [
+      { text: 'Make the diagnosis clinically: proptosis, a tense eye that will not retropulse, a relative afferent pupillary defect and rising intraocular pressure. Do not wait for CT.', caution: 'The retina tolerates roughly 60-120 minutes of ischaemia. Imaging first costs the eye.' },
+      { text: 'Give IV analgesia and consider acetazolamide and mannitol in parallel, but do not let them delay you.' },
+      { text: 'Inject 1-2 mL of lidocaine with adrenaline into the lateral canthus, directed away from the globe.' },
+      { text: 'Crush the lateral canthus horizontally with the haemostat for 30-60 seconds — this marks the line and reduces bleeding.' },
+      { text: 'Cut horizontally along the crushed line with scissors, from the lateral canthus to the orbital rim, about 1-2 cm. This is the canthotomy.' },
+      { text: 'Grasp the lower eyelid with forceps and pull it away from the face, anteriorly and superiorly, to put the inferior crus of the lateral canthal tendon on tension.' },
+      { text: 'Point the scissors inferiorly and posteriorly, strum for the taut tendon band, and cut it. You will feel a distinct release and the lid will become floppy.', caution: 'Cantholysis is the step that decompresses the orbit. A canthotomy alone is not enough.' },
+      { text: 'Recheck intraocular pressure and the afferent pupillary defect. If still elevated, release the superior crus as well.' },
+      { text: 'Apply saline gauze, shield the eye, and call ophthalmology urgently.' },
+    ],
+    pearls: [
+      'If the pressure has not fallen, you have not cut the tendon. Go back and strum for the band.',
+      'Bleeding is expected and is not a reason to stop.',
+      'The cosmetic result after repair is good. Fear of the cosmetic outcome should never delay the procedure.',
+    ],
+    complications: ['Globe injury', 'Injury to the lacrimal gland or lateral rectus', 'Bleeding', 'Incomplete decompression from a missed cantholysis', 'Eyelid scarring or malposition'],
+  },
+  {
+    id: 'epistaxis-management',
+    name: 'Epistaxis Management',
+    aka: ['nosebleed', 'nasal packing', 'anterior packing', 'posterior packing'],
+    acuity: 'urgent',
+    summary:
+      'Stepwise control of anterior and posterior nasal bleeding, from pressure through cautery to packing.',
+    equipment: [
+      { item: 'Nasal speculum and headlight' },
+      { item: 'Suction with a Frazier tip' },
+      { item: 'Topical vasoconstrictor and anaesthetic', detail: 'Oxymetazoline plus lidocaine on a cotton pledget' },
+      { item: 'Silver nitrate sticks', detail: 'For a visible anterior bleeding point' },
+      { item: 'Anterior pack', detail: 'Nasal tampon or inflatable balloon catheter' },
+      { item: 'Posterior balloon device', detail: 'Or a 12-14 Fr Foley catheter for the posterior approach' },
+      { item: 'Tranexamic acid', detail: '500 mg on soaked gauze applied topically', optional: true },
+      { item: 'Water-based lubricant, gloves, gown and face shield' },
+    ],
+    indications: [
+      'Anterior epistaxis not controlled by 15 minutes of correctly applied pressure',
+      'Posterior epistaxis',
+      'Recurrent bleeding requiring definitive haemostasis',
+      'Haemodynamic compromise or anticoagulation with ongoing bleeding',
+    ],
+    contraindications: {
+      absolute: ['Suspected basilar skull fracture or nasal cerebrospinal fluid leak — do not pack blindly'],
+      relative: [
+        'Recent nasal or sinus surgery',
+        'Significant nasal septal deviation preventing safe placement',
+        'Cautery on both sides of the septum at the same visit — risks septal perforation',
+      ],
+    },
+    steps: [
+      { text: 'Protect yourself, sit the patient forward, and have them blow out clots.' },
+      { text: 'Apply firm pressure to the cartilaginous alae — not the bony bridge — continuously for 15 minutes by the clock.', caution: 'Most "failed" pressure is pressure in the wrong place or released too early.' },
+      { text: 'Insert a pledget soaked in oxymetazoline and lidocaine, leave for 5-10 minutes, then re-examine with the speculum and headlight.' },
+      { text: 'Identify the bleeding point. Little’s area on the anterior septum accounts for the large majority.' },
+      { text: 'Cauterise a visible anterior point with silver nitrate: apply around the vessel first, then the point itself, for 5-10 seconds. Never cauterise both sides of the septum.' },
+      { text: 'If bleeding continues or no point is seen, place an anterior pack: lubricate the tampon and slide it straight back along the floor of the nose, then hydrate it.' },
+      { text: 'If bleeding persists or blood is running down the pharynx, suspect a posterior source and place a posterior balloon device, then an anterior pack on that side.' },
+      { text: 'Admit and monitor any patient with a posterior pack — airway and hypoxia risk.' },
+      { text: 'Check coagulation and reverse anticoagulation where appropriate, and arrange ENT follow-up for pack removal in 24-72 hours.' },
+    ],
+    pearls: [
+      'Topical tranexamic acid on soaked gauze stops many anterior bleeds and is worth trying before packing.',
+      'Bilateral anterior packing beats a posterior pack in some cases by tamponading the septum.',
+      'Routine antibiotics for short-term anterior packs are not supported; practice varies for posterior packs.',
+    ],
+    complications: ['Septal perforation from bilateral cautery', 'Pressure necrosis from prolonged packing', 'Sinusitis', 'Airway compromise and hypoxia with posterior packs', 'Vasovagal syncope'],
+  },
+  {
+    id: 'peritonsillar-abscess-drainage',
+    name: 'Peritonsillar Abscess Drainage',
+    aka: ['quinsy drainage', 'PTA aspiration'],
+    acuity: 'urgent',
+    summary:
+      'Needle aspiration or incision of a peritonsillar collection to relieve trismus, odynophagia and airway narrowing.',
+    equipment: [
+      { item: 'Headlight and tongue depressor' },
+      { item: 'Topical anaesthetic', detail: 'Benzocaine or lidocaine spray, then infiltration with lidocaine and adrenaline' },
+      { item: 'Needle and syringe', detail: '18 G needle on a 10 mL syringe, with the sheath cut to expose only 1 cm' },
+      { item: 'Scalpel with No. 11 blade', detail: 'Tape the blade to leave 1 cm exposed, for the incision technique', optional: true },
+      { item: 'Rigid suction (Yankauer)' },
+      { item: 'Intraoral ultrasound probe', detail: 'Distinguishes abscess from cellulitis and locates the pocket', optional: true },
+      { item: 'Culture swab or container' },
+    ],
+    indications: [
+      'Peritonsillar abscess with trismus, uvular deviation, a muffled voice and unilateral swelling',
+      'Failure of antibiotics alone in peritonsillar cellulitis',
+      'Diagnostic aspiration to distinguish abscess from cellulitis',
+    ],
+    contraindications: {
+      absolute: [
+        'Impending airway obstruction — secure the airway with ENT and anaesthesia present',
+        'Uncooperative patient or a young child — these need theatre',
+      ],
+      relative: [
+        'Coagulopathy',
+        'Severe trismus preventing adequate access and view',
+        'Suspected vascular anomaly or aberrant carotid course',
+      ],
+    },
+    steps: [
+      { text: 'Assess the airway first. Stridor, drooling or a tripoding patient changes the plan entirely.' },
+      { text: 'Sit the patient upright with suction in their own hand or held by an assistant.' },
+      { text: 'Apply topical anaesthetic, wait, then infiltrate the mucosa over the most fluctuant point with lidocaine and adrenaline.' },
+      { text: 'Prepare the needle: cut the plastic sheath so only 1 cm of needle protrudes. This is your depth guard.', caution: 'The internal carotid artery runs posterolateral to the tonsil. Never angle laterally, and never go deeper than 1 cm.' },
+      { text: 'Aspirate at the most fluctuant point, usually the superior pole at the junction of the soft palate and the anterior tonsillar pillar. Direct the needle strictly in the sagittal plane.' },
+      { text: 'If the superior pole is dry, try the middle and then the inferior pole.' },
+      { text: 'For an incision and drainage instead, make a 1 cm stab at the same point with a guarded No. 11 blade, then spread with a clamp and suction.' },
+      { text: 'Send pus for culture, have the patient gargle, and confirm symptomatic relief.' },
+      { text: 'Give antibiotics covering group A streptococcus and anaerobes, plus steroids and analgesia, and arrange ENT follow-up.' },
+    ],
+    pearls: [
+      'Intraoral ultrasound reliably separates cellulitis from abscess and reduces dry taps.',
+      'Immediate relief of trismus and pain after aspiration is both diagnostic and therapeutic.',
+      'Recurrent abscesses are an indication for elective tonsillectomy.',
+    ],
+    complications: ['Carotid artery injury', 'Aspiration of pus', 'Bleeding', 'Airway compromise', 'Incomplete drainage and recurrence'],
+  },
+]);

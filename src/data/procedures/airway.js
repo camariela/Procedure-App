@@ -1,0 +1,166 @@
+import { defineProcedures } from '../schema.js';
+
+export default defineProcedures('airway', [
+  {
+    id: 'rapid-sequence-intubation',
+    name: 'Rapid Sequence Intubation',
+    aka: ['RSI', 'orotracheal intubation', 'endotracheal intubation'],
+    acuity: 'emergent',
+    summary:
+      'Near-simultaneous sedative and paralytic to create optimal conditions for laryngoscopy and cuffed tube placement.',
+    equipment: [
+      { item: 'Laryngoscope', detail: 'Video laryngoscope preferred; direct blade as backup' },
+      { item: 'Endotracheal tubes', detail: '7.0-8.0 mm for adults; one size below as backup' },
+      { item: 'Bougie or stylet', detail: 'Bougie first-pass for any anticipated grade 2+ view' },
+      { item: 'Bag-valve mask with PEEP valve and viral filter' },
+      { item: 'Suction', detail: 'Rigid Yankauer, tested, within reach of your right hand' },
+      { item: 'Waveform capnography' },
+      { item: 'Induction agent', detail: 'Ketamine 1-2 mg/kg or etomidate 0.3 mg/kg' },
+      { item: 'Paralytic', detail: 'Rocuronium 1.2 mg/kg or succinylcholine 1.5 mg/kg' },
+      { item: 'Push-dose vasopressor', detail: 'Prepared before induction, not after' },
+      { item: 'Supraglottic airway', detail: 'Rescue device, opened and ready' },
+      { item: 'Cricothyrotomy kit', detail: 'At the bedside for any predicted difficult airway' },
+      { item: '10 mL syringe, tube tie, ventilator circuit' },
+    ],
+    indications: [
+      'Failure to maintain or protect the airway',
+      'Failure of oxygenation or ventilation despite non-invasive support',
+      'Anticipated clinical course requiring a definitive airway (transfer, burns, expanding haematoma)',
+      'Need for deep sedation or paralysis to manage the patient safely',
+    ],
+    contraindications: {
+      absolute: [
+        'Total upper airway obstruction where laryngoscopy cannot succeed — go straight to a surgical airway',
+      ],
+      relative: [
+        'Predicted difficult airway without a rescue plan or the operator to execute it',
+        'Succinylcholine specifically: hyperkalaemia, burns or denervation beyond 72 hours, known myopathy, malignant hyperthermia history',
+        'Patient who can be managed with non-invasive ventilation and is improving',
+      ],
+    },
+    steps: [
+      { text: 'Preoxygenate for 3 minutes: non-rebreather at flush rate plus nasal cannula at 15 L/min, head up 30 degrees.' },
+      { text: 'Optimise haemodynamics first — fluid or push-dose pressor for a shock index above 0.8.', caution: 'Peri-intubation arrest is usually a blood pressure problem, not an airway problem.' },
+      { text: 'Verbalise the plan: drugs and doses, plan A device, plan B, plan C, and who cuts the neck.' },
+      { text: 'Position: ear-to-sternal-notch, face plane parallel to the ceiling. Ramp obese patients.' },
+      { text: 'Push induction agent, then paralytic immediately behind it; leave nasal cannula flowing.' },
+      { text: 'Wait 45-60 seconds for full relaxation. Do not rush the blade in against tone.' },
+      { text: 'Insert the blade in the midline, sweep the tongue left, and lift along the handle axis to expose the epiglottis, then the cords.' },
+      { text: 'Pass the bougie or tube under direct vision through the cords; stop when the cuff disappears past them.' },
+      { text: 'Inflate the cuff, confirm with sustained waveform capnography, then auscultate.', caution: 'Capnography is the confirmation. Chest rise and misting are not.' },
+      { text: 'Secure at 21-23 cm at the teeth, start post-intubation sedation and analgesia, and order a chest radiograph.' },
+    ],
+    pearls: [
+      'Declare a failed attempt at 30 seconds or any desaturation below 93% — bag, reoxygenate, then change something before attempt two.',
+      'Change something every attempt: operator, device, blade, position, or external laryngeal manipulation.',
+      'Three failed attempts is a failed airway. Move to the supraglottic airway or the neck.',
+    ],
+    complications: [
+      'Oesophageal intubation (unrecognised is fatal)',
+      'Hypoxia and peri-intubation cardiac arrest',
+      'Aspiration',
+      'Dental and airway trauma',
+      'Right mainstem intubation',
+    ],
+  },
+  {
+    id: 'surgical-cricothyrotomy',
+    name: 'Surgical Cricothyrotomy',
+    aka: ['cric', 'front of neck access', 'FONA', 'emergency surgical airway'],
+    acuity: 'emergent',
+    summary:
+      'Definitive airway through the cricothyroid membrane when you cannot intubate and cannot oxygenate.',
+    equipment: [
+      { item: 'Scalpel', detail: 'No. 10 blade — the broad belly is what you want' },
+      { item: 'Bougie' },
+      { item: 'Cuffed tracheal tube', detail: '6.0 mm ETT or size 4 Shiley' },
+      { item: '10 mL syringe and bag-valve device' },
+      { item: 'Waveform capnography' },
+      { item: 'Tracheal hook', detail: 'Helpful for control of the larynx', optional: true },
+      { item: 'Gauze and suction', detail: 'The field will bleed; expect it and continue' },
+    ],
+    indications: [
+      'Cannot intubate, cannot oxygenate — the only absolute indication',
+      'Massive facial or upper airway trauma preventing oral or nasal access',
+      'Upper airway obstruction from angioedema, burn, foreign body or infection where laryngoscopy has failed',
+    ],
+    contraindications: {
+      absolute: [
+        'Children under roughly 10-12 years — the cricothyroid membrane is too small; use needle cricothyrotomy with jet oxygenation',
+      ],
+      relative: [
+        'Tracheal transection or laryngeal fracture (the landmark is destroyed)',
+        'Any situation in which the patient can still be oxygenated by another route',
+      ],
+    },
+    steps: [
+      { text: 'Say it out loud: "This is a cannot-intubate, cannot-oxygenate airway. I am performing a cricothyrotomy."', caution: 'The commonest error is deciding too late.' },
+      { text: 'Extend the neck. Stand on the patient’s left if right-handed.' },
+      { text: 'Stabilise the larynx with your non-dominant hand and keep it there for the entire procedure.' },
+      { text: 'Palpate the cricothyroid membrane: slide down from the thyroid cartilage into the dip above the cricoid ring. If the neck is impalpable, make an 8-10 cm vertical midline incision first and find it with your finger.' },
+      { text: 'Make a horizontal stab through the membrane, blade perpendicular, then rotate the blade so the sharp edge points caudally.' },
+      { text: 'Slide the bougie alongside the blade, angled caudally into the trachea. Feel for tracheal rings or hold-up.' },
+      { text: 'Remove the blade, railroad the 6.0 tube over the bougie, and advance until the cuff is well past the membrane.' },
+      { text: 'Remove the bougie, inflate the cuff, ventilate and confirm with waveform capnography.' },
+      { text: 'Secure the tube with a tie and hold it manually until it is fixed — this tube is easy to lose.' },
+    ],
+    pearls: [
+      'Scalpel-bougie-tube beats needle and beats kits in adult hands.',
+      'Bleeding obscures the view; the procedure is done by feel, not by sight.',
+      'Laryngeal handshake: thumb and middle finger on the laminae, index finger walking the midline.',
+    ],
+    complications: [
+      'Creation of a false passage',
+      'Bleeding from anterior jugular veins or the thyroid isthmus',
+      'Injury to the posterior tracheal wall or oesophagus',
+      'Subglottic stenosis (late)',
+    ],
+  },
+  {
+    id: 'supraglottic-airway',
+    name: 'Supraglottic Airway Insertion',
+    aka: ['LMA', 'laryngeal mask airway', 'i-gel', 'rescue airway'],
+    acuity: 'emergent',
+    summary:
+      'Blindly seated periglottic device that gives a rapid, reliable airway when bagging is failing or intubation has not worked.',
+    equipment: [
+      { item: 'Supraglottic device', detail: 'Size 4 for most adult women, size 5 for most adult men' },
+      { item: 'Water-based lubricant' },
+      { item: 'Bag-valve device and oxygen' },
+      { item: 'Waveform capnography' },
+      { item: 'Suction' },
+      { item: 'Syringe', detail: 'For cuffed devices only; i-gel needs none', optional: true },
+      { item: 'Gastric tube', detail: 'Through the drain port on second-generation devices', optional: true },
+    ],
+    indications: [
+      'Rescue ventilation in a failed intubation',
+      'Primary airway in cardiac arrest where minimising compression interruption matters',
+      'Bridge to a definitive airway during transfer or while preparing for a surgical airway',
+      'Difficult bag-mask ventilation',
+    ],
+    contraindications: {
+      absolute: ['Complete upper airway obstruction at or below the glottis'],
+      relative: [
+        'Intact gag reflex',
+        'High aspiration risk — it does not protect the airway',
+        'Limited mouth opening under about 2 cm',
+        'Fixed reduction in pulmonary compliance requiring high inflation pressures',
+      ],
+    },
+    steps: [
+      { text: 'Choose the size by weight and lubricate the posterior surface only.' },
+      { text: 'Position in sniffing position if the neck is safe to move; open the mouth with a chin lift.' },
+      { text: 'Press the device against the hard palate and slide it along the palate into the hypopharynx in one continuous movement.' },
+      { text: 'Advance until you feel definite resistance — this is the device seating at the upper oesophageal sphincter. Do not force further.' },
+      { text: 'Inflate the cuff to the device pressure if cuffed; i-gel devices need no inflation.' },
+      { text: 'Ventilate and confirm with waveform capnography and chest rise; check for a leak at the mouth.' },
+      { text: 'Pass a gastric tube through the drain port if the device has one, and secure with tape or a tie.' },
+    ],
+    pearls: [
+      'A leak usually means the device is too small or sitting too shallow — go up a size before giving up.',
+      'Second-generation devices with a gastric drain are strongly preferred in the emergency department.',
+      'It buys you time. Plan the definitive airway while it is in.',
+    ],
+    complications: ['Aspiration', 'Inadequate seal and hypoventilation', 'Sore throat', 'Laryngospasm on insertion in a light patient'],
+  },
+]);

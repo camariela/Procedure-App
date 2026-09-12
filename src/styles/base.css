@@ -1,0 +1,233 @@
+/* Reset, layout shell, and the chrome that sits outside the router. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--brand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface-sunken);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: var(--sp-2);
+  z-index: 20;
+  background: var(--brand);
+  color: var(--brand-ink);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-sm);
+}
+
+.skip:focus {
+  left: var(--sp-3);
+}
+
+/* ---- Top bar ---- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--brand-strong);
+  color: var(--brand-ink);
+  padding-top: env(safe-area-inset-top);
+}
+
+.topbar__inner {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  flex: none;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.14);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.searchbar {
+  position: relative;
+  flex: 1 1 14rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar__icon {
+  position: absolute;
+  left: 0.7rem;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.searchbar input {
+  width: 100%;
+  font: inherit;
+  color: var(--brand-ink);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem 0.55rem 2.3rem;
+  -webkit-appearance: none;
+}
+
+.searchbar input::placeholder {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.searchbar input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 1px;
+}
+
+/* ---- Offline banner ---- */
+
+.offline-banner {
+  display: none;
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-align: center;
+  padding: var(--sp-2) var(--sp-4);
+}
+
+.is-offline .offline-banner {
+  display: block;
+}
+
+/* ---- Shell ---- */
+
+.shell {
+  flex: 1;
+  width: 100%;
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: var(--sp-5) var(--sp-4) var(--sp-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface-sunken);
+  padding: var(--sp-5) var(--sp-4) calc(var(--sp-5) + env(safe-area-inset-bottom));
+}
+
+.footer__disclaimer,
+.footer__meta {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.footer__meta {
+  margin-top: var(--sp-3);
+  color: var(--ink-faint);
+}
+
+.noscript {
+  padding: var(--sp-5);
+  text-align: center;
+}

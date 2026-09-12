@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>EM Procedures</title>
+    <meta
+      name="description"
+      content="Emergency medicine procedures by organ system: step videos, equipment checklists, indications and contraindications."
+    />
+    <meta name="theme-color" content="#0f2e33" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+    <link rel="stylesheet" href="./src/styles/tokens.css" />
+    <link rel="stylesheet" href="./src/styles/base.css" />
+    <link rel="stylesheet" href="./src/styles/components.css" />
+  </head>
+  <body>
+    <a class="skip" href="#app">Skip to content</a>
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#/">
+          <span class="brand__mark" aria-hidden="true">EM</span>
+          <span class="brand__name">Procedures</span>
+        </a>
+        <form class="searchbar" role="search" onsubmit="return false">
+          <label class="visually-hidden" for="search">Search procedures</label>
+          <svg class="searchbar__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M16 16l4 4" />
+          </svg>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search procedures, kit or indications"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+        </form>
+      </div>
+      <p class="offline-banner" role="status">Offline — videos unavailable, everything else works.</p>
+    </header>
+
+    <main id="app" class="shell"></main>
+
+    <footer class="footer">
+      <p class="footer__disclaimer">
+        <strong>Reference only.</strong> Content is drafted for training and quick recall and is
+        <strong>not clinically reviewed</strong>. It does not replace institutional protocols,
+        senior support or clinical judgement. Verify doses and technique against your local
+        guidance before acting.
+      </p>
+      <p class="footer__meta">Built to be edited — add a procedure by adding a record to its organ-system data file.</p>
+    </footer>
+
+    <noscript>
+      <p class="noscript">This app needs JavaScript enabled.</p>
+    </noscript>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
