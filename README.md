@@ -21,16 +21,18 @@ python3 -m http.server 8000
 
 ## Deployment
 
-Pushes to `main` (or the development branch) trigger
+**One-time setup, and nothing deploys until it is done:** repository *Settings
+→ Pages → Build and deployment → Source: **GitHub Actions***. Until Pages is
+enabled the deploy job is rejected before it starts, with no step output to
+explain why.
+
+After that, every push to the default branch runs
 `.github/workflows/deploy.yml`, which validates the catalogue and publishes the
-repository to GitHub Pages as-is.
+repository to Pages as-is. The app lives at `https://<owner>.github.io/<repo>/`.
 
-**One-time setup:** repository *Settings → Pages → Build and deployment →
-Source: GitHub Actions*. If you want the workflow to publish from the
-development branch before it merges, also add that branch under *Settings →
-Environments → github-pages → Deployment branches*.
-
-The app then lives at `https://<owner>.github.io/<repo>/`.
+The workflow also triggers on `main`, for when the development branch is merged
+into one. If you later deploy from a branch that is *not* the default branch,
+add it under *Settings → Environments → github-pages → Deployment branches*.
 
 ## How it is put together
 
