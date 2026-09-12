@@ -73,6 +73,7 @@ navigation, search and the offline cache with no other change.
   name: 'Lumbar Puncture',
   aka: ['LP', 'spinal tap'],      // searchable synonyms
   acuity: 'urgent',               // 'emergent' | 'urgent' | 'routine'
+  frequency: 'frequent',          // 'halo' | 'occasional' | 'frequent'
   summary: 'One line: what it is and when you reach for it.',
   video: {                        // omit entirely to fall back to the placeholder
     id: 'abc123XYZ00',            // YouTube id
@@ -89,9 +90,16 @@ navigation, search and the offline cache with no other change.
 }
 ```
 
-`schema.js` throws at load if a required field is missing, and `index.js` throws
-on a duplicate id or an unknown system — so mistakes surface immediately rather
-than as a blank screen.
+`schema.js` throws at load if a required field is missing or if `frequency` is
+not one of the three allowed values, and `index.js` throws on a duplicate id or
+an unknown system — so mistakes surface immediately rather than as a blank
+screen.
+
+`frequency` is how often one clinician actually performs the procedure, which is
+a different axis from how sick the patient is. `halo` — high acuity, low
+occurrence — marks the rehearsal set: rare enough that you will be rusty,
+unforgiving enough that rust matters. Those records are collected into
+`HALO_PROCEDURES` and lead the home screen.
 
 ### Adding an organ system
 

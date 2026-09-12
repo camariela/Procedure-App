@@ -48,6 +48,12 @@ export const SYSTEMS = [
     icon: 'kidney',
   },
   {
+    id: 'obstetric',
+    name: 'Obstetric & Neonatal',
+    blurb: 'Delivery in the department, and the arrest that needs the uterus emptied.',
+    icon: 'obstetric',
+  },
+  {
     id: 'musculoskeletal',
     name: 'Musculoskeletal',
     blurb: 'Joints, compartments and reductions.',

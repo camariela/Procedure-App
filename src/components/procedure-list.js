@@ -7,7 +7,7 @@ import { html, when } from '../lib/dom.js';
 import { href } from '../lib/router.js';
 import { acuityBadge, haloBadge } from './badges.js';
 
-export const procedureList = (procedures, { showSystem = false } = {}) => html`
+export const procedureList = (procedures, { showSystem = false, compact = false } = {}) => html`
   <ul class="cards">
     ${procedures.map(
       (procedure) => html`
@@ -19,7 +19,7 @@ export const procedureList = (procedures, { showSystem = false } = {}) => html`
                 ${haloBadge(procedure.frequency)} ${acuityBadge(procedure.acuity)}
               </span>
             </span>
-            <span class="card__summary">${procedure.summary}</span>
+            ${when(!compact, html`<span class="card__summary">${procedure.summary}</span>`)}
             ${when(showSystem, html`<span class="card__system">${procedure.systemName}</span>`)}
           </a>
         </li>

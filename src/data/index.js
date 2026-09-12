@@ -17,6 +17,7 @@ import genitourinary from './procedures/genitourinary.js';
 import heent from './procedures/heent.js';
 import musculoskeletal from './procedures/musculoskeletal.js';
 import neurologic from './procedures/neurologic.js';
+import obstetric from './procedures/obstetric.js';
 import softTissue from './procedures/soft-tissue.js';
 import thoracic from './procedures/thoracic.js';
 import vascularAccess from './procedures/vascular-access.js';
@@ -30,6 +31,7 @@ const RAW_PROCEDURES = [
   ...heent,
   ...musculoskeletal,
   ...neurologic,
+  ...obstetric,
   ...softTissue,
   ...thoracic,
   ...vascularAccess,

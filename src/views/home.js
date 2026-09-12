@@ -60,10 +60,10 @@ export const homeView = ({ params }) => {
               Rehearse <span class="section__note">high acuity, low occurrence</span>
             </h2>
             <p class="section__lead">
-              You will do these rarely and badly unless you practise them cold. Read
-              one when nothing is happening, not when it is.
+              ${HALO_PROCEDURES.length} procedures you will do rarely and badly unless you
+              practise them cold. Read one when nothing is happening, not when it is.
             </p>
-            ${procedureList(HALO_PROCEDURES, { showSystem: true })}
+            ${procedureList(HALO_PROCEDURES, { showSystem: true, compact: true })}
           </section>
           <section class="section">
             <h2 class="section__title">Browse by system</h2>

@@ -1,0 +1,128 @@
+import { defineProcedures } from '../schema.js';
+
+export default defineProcedures('obstetric', [
+  {
+    id: 'emergency-delivery',
+    name: 'Emergency Delivery',
+    aka: ['precipitous delivery', 'imminent birth', 'born before arrival', 'BBA', 'shoulder dystocia', 'cord prolapse'],
+    acuity: 'emergent',
+    frequency: 'halo',
+    summary:
+      'The unplanned birth in the department — the normal delivery, and the four complications that turn it into an emergency.',
+    video: {
+      id: 'iaeAhEn8vQY',
+      title: 'Vaginal Delivery Basics: A Step-by-Step Tutorial for Your First Delivery',
+    },
+    equipment: [
+      { item: 'Delivery pack', detail: 'Two cord clamps, scissors, drapes, gauze' },
+      { item: 'Two warm dry towels and a hat', detail: 'Heat loss is fast and entirely preventable' },
+      { item: 'Neonatal resuscitation area', detail: 'Radiant warmer, 240 mL bag with size 0/1 masks, suction, saturation probe' },
+      { item: 'Oxytocin 10 units IM', detail: 'Drawn up before the third stage, not after' },
+      { item: 'Second-line uterotonic', detail: 'Misoprostol, ergometrine or carboprost' },
+      { item: 'Tranexamic acid 1 g' },
+      { item: 'Two large-bore IVs, group and crossmatch' },
+      { item: 'Bladder catheter' },
+      { item: 'Step stool', detail: 'For the assistant applying suprapubic pressure', optional: true },
+      { item: 'Ultrasound', detail: 'Presentation and fetal heart rate' },
+    ],
+    indications: [
+      'Crowning, or an irresistible urge to push, with no time to transfer',
+      'Precipitous labour at any gestation',
+      'Delivery required to manage a maternal emergency',
+    ],
+    contraindications: {
+      absolute: [],
+      relative: [
+        'Obstructed labour — transverse lie, brow presentation — needs theatre, not pushing',
+        'Cord prolapse: this becomes a caesarean, not a vaginal delivery',
+      ],
+    },
+    steps: [
+      { text: 'Call obstetrics, midwifery and paediatrics before you examine. Two patients means two teams and two trolleys.' },
+      { text: 'Manual left uterine displacement in any woman beyond 20 weeks who is supine and unwell.' },
+      { text: 'Confirm presentation with ultrasound if there is any doubt, and check the fetal heart rate.' },
+      { text: 'Support, do not pull. Gentle counter-pressure on the head prevents an explosive delivery; the mother does the work.' },
+      { text: 'Check for a cord around the neck once the head is out. Loose — slip it over. Tight — clamp and cut, or somersault the baby out.' },
+      { text: 'Deliver the anterior shoulder with gentle downward traction, then the posterior shoulder upward.', caution: 'If the head retracts against the perineum and the shoulder will not come, stop pulling. This is a shoulder dystocia.' },
+      { text: 'Shoulder dystocia, in order: call for help and announce the time; McRoberts (hips hyperflexed onto the abdomen); suprapubic pressure; then internal manoeuvres — deliver the posterior arm, Rubin II, Woods screw, reverse Woods.', caution: 'Never fundal pressure and never harder traction. Both cause brachial plexus injury and uterine rupture.' },
+      { text: 'Cord prolapse: do not handle the cord. Elevate the presenting part with your hand or fill the bladder with 500 mL, position knee-to-chest or head-down, and move to theatre.' },
+      { text: 'Deliver the baby onto the mother, dry vigorously, assess tone, breathing and heart rate, and delay cord clamping 60 seconds if the baby is well.' },
+      { text: 'Third stage: oxytocin 10 units IM, controlled cord traction with counter-pressure above the pubis, then inspect the placenta for completeness.' },
+      { text: 'Postpartum haemorrhage: rub up a contraction, empty the bladder, oxytocin infusion, tranexamic acid 1 g, bimanual compression, theatre.', caution: 'Tone, trauma, tissue, thrombin. Tone is the cause seven times out of ten.' },
+    ],
+    pearls: [
+      'The mother delivers the baby. Your job is to catch it, keep it warm, and recognise the four things that go wrong.',
+      'Time the shoulder dystocia out loud. Change manoeuvre every 30 seconds.',
+      'Postpartum blood loss is always underestimated. Weigh the pads if you can.',
+      'Set up the neonatal corner before the delivery, not during it.',
+    ],
+    complications: [
+      'Shoulder dystocia with brachial plexus injury or hypoxia',
+      'Postpartum haemorrhage',
+      'Perineal and cervical tears',
+      'Cord prolapse and fetal hypoxia',
+      'Neonatal hypothermia',
+    ],
+  },
+  {
+    id: 'resuscitative-hysterotomy',
+    name: 'Resuscitative Hysterotomy',
+    aka: ['perimortem caesarean section', 'perimortem c-section', 'PMCS', 'emergency hysterotomy'],
+    acuity: 'emergent',
+    frequency: 'halo',
+    summary:
+      'Emptying the uterus during maternal cardiac arrest to relieve aortocaval compression — a maternal resuscitation procedure, done where the arrest happens, at four minutes.',
+    video: {
+      id: 'HLmxDP20mvk',
+      title: 'Resuscitative Hysterotomy / Perimortem Caesarean section by the SMACCForce Simulation Team',
+    },
+    equipment: [
+      { item: 'Scalpel', detail: 'No. 10 or 22. This is the only thing you genuinely need' },
+      { item: 'Blunt scissors and toothed forceps' },
+      { item: 'Two cord clamps' },
+      { item: 'Large gauze packs and suction' },
+      { item: 'Abdominal retractors', detail: 'Helpful, never worth waiting for', optional: true },
+      { item: 'Neonatal resuscitation trolley and warmer', detail: 'With the neonatal team already called' },
+      { item: 'Oxytocin and broad-spectrum antibiotics', detail: 'For after return of circulation' },
+      { item: 'Everything the arrest already needs', detail: 'ACLS continues throughout; this is not a pause' },
+    ],
+    indications: [
+      'Maternal cardiac arrest with a uterus at or above the umbilicus — roughly 20 weeks or more',
+      'No return of spontaneous circulation by four minutes of good-quality resuscitation',
+      'Start at four minutes, aim to deliver at five',
+    ],
+    contraindications: {
+      absolute: [],
+      relative: [
+        'Gestation clearly below 20 weeks — there is no meaningful aortocaval compression to relieve',
+        'Return of spontaneous circulation achieved before four minutes',
+      ],
+    },
+    steps: [
+      { text: 'Start the clock at the moment of arrest and say the target out loud: "Hysterotomy at four minutes."' },
+      { text: 'Continue chest compressions, airway management and defibrillation throughout. Manual left uterine displacement, not a tilt, while you prepare.' },
+      { text: 'Do it here. Do not move to theatre, do not wait for an obstetrician, do not stop compressions. No anaesthetic is needed in true arrest.', caution: 'Every reported failure of this procedure is a failure to decide, not a failure of technique.' },
+      { text: 'Splash antiseptic over the abdomen. No drapes, no scrub, no delay.' },
+      { text: 'Vertical midline incision from umbilicus to pubic symphysis, through skin, fat and fascia.', caution: 'A full bladder sits in your way. Catheterise if a catheter is already to hand; never wait for one.' },
+      { text: 'Open the peritoneum bluntly with fingers or scissors to avoid bowel injury.' },
+      { text: 'Small vertical incision in the lower uterine segment, then extend it upward with your fingers, or with scissors shielded by two fingers inside the uterus.', caution: 'An anterior placenta is cut through, not worked around. Deliver the baby fast.' },
+      { text: 'Deliver the baby, clamp and cut the cord, and hand over to the neonatal team.' },
+      { text: 'Deliver the placenta and pack the uterus. Give oxytocin only once there is a circulation to carry it.' },
+      { text: 'Continue maternal resuscitation. Most maternal return of circulation happens within a minute of delivery.' },
+      { text: 'On return of circulation: anaesthesia, antibiotics, and theatre for definitive closure.' },
+    ],
+    pearls: [
+      'This is done for the mother. Fetal survival is a bonus, not the indication.',
+      'Four minutes is a target, not a deadline. It is still worth doing later, and there are survivors well beyond it.',
+      'The kit is a scalpel. Everything else is optional, and everything else is slower.',
+      'The barrier is always the decision. Rehearse the decision, as a team, out loud.',
+    ],
+    complications: [
+      'Bladder or bowel injury',
+      'Massive haemorrhage once circulation returns — an arrested uterus barely bleeds',
+      'Fetal laceration',
+      'Infection',
+      'Significant psychological impact on the team; debrief it',
+    ],
+  },
+]);
