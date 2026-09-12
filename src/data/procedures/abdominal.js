@@ -8,6 +8,10 @@ export default defineProcedures('abdominal', [
     acuity: 'urgent',
     summary:
       'Ultrasound-guided needle drainage of ascites for diagnosis of peritonitis or relief of tense abdominal distension.',
+    video: {
+      id: 'LDIo6xQS7Hc',
+      title: 'How To: Ultrasound Guided Paracentesis Procedure (3D)',
+    },
     equipment: [
       { item: 'Ultrasound with curvilinear probe' },
       { item: 'Needle or catheter', detail: '20-22 G for diagnostic; 15-18 G catheter or dedicated kit for therapeutic' },
@@ -59,6 +63,10 @@ export default defineProcedures('abdominal', [
     acuity: 'urgent',
     summary:
       'Tube passed through the nose into the stomach for decompression, lavage or feeding.',
+    video: {
+      id: 'nzBApWQSNdI',
+      title: 'Nasogastric Tube Insertion (courtesy NEJM)',
+    },
     equipment: [
       { item: 'Nasogastric tube', detail: '14-18 Fr for decompression; large-bore Ewald tube for lavage' },
       { item: 'Water-based lubricant' },

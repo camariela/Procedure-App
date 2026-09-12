@@ -7,7 +7,8 @@
  * @property {string[]} [aka]           Alternative names, used by search.
  * @property {'emergent'|'urgent'|'routine'} acuity
  * @property {string}   summary         One line: what this is and when it is reached for.
- * @property {string}   [videoId]       YouTube id; defaults to the shared placeholder.
+ * @property {{id: string, title: string, checked?: boolean}} [video]
+ *                                  Video source; defaults to the shared placeholder.
  * @property {Array<{item: string, detail?: string, optional?: boolean}>} equipment
  * @property {string[]} indications
  * @property {{absolute?: string[], relative?: string[]}} [contraindications]
@@ -20,13 +21,12 @@
  * it appears in navigation, search and the offline cache automatically.
  */
 
-import { PLACEHOLDER_VIDEO_ID } from './config.js';
+import { PLACEHOLDER_VIDEO } from './config.js';
 
 const REQUIRED = ['id', 'name', 'acuity', 'summary', 'equipment', 'indications', 'steps'];
 
 const DEFAULTS = {
   aka: [],
-  videoId: PLACEHOLDER_VIDEO_ID,
   contraindications: {},
   pearls: [],
   complications: [],
@@ -43,5 +43,6 @@ export const defineProcedures = (systemId, procedures) =>
     if (missing.length) {
       throw new Error(`Procedure "${procedure.id ?? '?'}" is missing: ${missing.join(', ')}`);
     }
-    return { ...DEFAULTS, ...procedure, systemId };
+    const video = { checked: false, ...(procedure.video ?? PLACEHOLDER_VIDEO) };
+    return { ...DEFAULTS, ...procedure, video, systemId };
   });

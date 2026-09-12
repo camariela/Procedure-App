@@ -8,6 +8,10 @@ export default defineProcedures('genitourinary', [
     acuity: 'urgent',
     summary:
       'Staged approach to draining an obstructed bladder when a standard catheter will not pass.',
+    video: {
+      id: 'sskHRzaPT4M',
+      title: 'How to Place a Coude Urinary Catheter in Challenging Male Urethral Anatomy',
+    },
     equipment: [
       { item: 'Catheters', detail: '16 Fr standard, then 18 Fr coude tip; larger is often easier in prostatic obstruction' },
       { item: 'Lidocaine gel 2%', detail: '10-20 mL instilled and held for 5 minutes' },
@@ -57,6 +61,10 @@ export default defineProcedures('genitourinary', [
     acuity: 'emergent',
     summary:
       'Manual reduction of a retracted, oedematous foreskin trapped proximal to the glans.',
+    video: {
+      id: 'BkeOUzC1Q40',
+      title: 'Paraphimosis Management & Reduction Options',
+    },
     equipment: [
       { item: 'Analgesia', detail: 'Penile block with plain lidocaine, or procedural sedation' },
       { item: 'Lubricant' },

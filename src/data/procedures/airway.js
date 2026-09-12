@@ -8,6 +8,10 @@ export default defineProcedures('airway', [
     acuity: 'emergent',
     summary:
       'Near-simultaneous sedative and paralytic to create optimal conditions for laryngoscopy and cuffed tube placement.',
+    video: {
+      id: 'uq7xREf9NoY',
+      title: 'Must Know EM - Rapid Sequence Intubation | The Advanced EM Boot Camp',
+    },
     equipment: [
       { item: 'Laryngoscope', detail: 'Video laryngoscope preferred; direct blade as backup' },
       { item: 'Endotracheal tubes', detail: '7.0-8.0 mm for adults; one size below as backup' },
@@ -70,6 +74,10 @@ export default defineProcedures('airway', [
     acuity: 'emergent',
     summary:
       'Definitive airway through the cricothyroid membrane when you cannot intubate and cannot oxygenate.',
+    video: {
+      id: 'xtXIxvyshXE',
+      title: 'EMCrit 131 - Cricothyrotomy - Cut to Air: Emergency Surgical Airway',
+    },
     equipment: [
       { item: 'Scalpel', detail: 'No. 10 blade — the broad belly is what you want' },
       { item: 'Bougie' },
@@ -123,6 +131,10 @@ export default defineProcedures('airway', [
     acuity: 'emergent',
     summary:
       'Blindly seated periglottic device that gives a rapid, reliable airway when bagging is failing or intubation has not worked.',
+    video: {
+      id: 'rLBZjtCd_WE',
+      title: 'LMA insertion technique',
+    },
     equipment: [
       { item: 'Supraglottic device', detail: 'Size 4 for most adult women, size 5 for most adult men' },
       { item: 'Water-based lubricant' },

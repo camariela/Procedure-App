@@ -8,6 +8,10 @@ export default defineProcedures('soft-tissue', [
     acuity: 'urgent',
     summary:
       'Incision, loculation breakdown and drainage of a walled-off soft tissue collection.',
+    video: {
+      id: 'sqYchXO0PnQ',
+      title: 'Abscess Incision & Drainage Technique',
+    },
     equipment: [
       { item: 'Scalpel with No. 11 blade' },
       { item: 'Curved haemostat', detail: 'For breaking loculations' },
@@ -62,6 +66,10 @@ export default defineProcedures('soft-tissue', [
     acuity: 'routine',
     summary:
       'Exploration, irrigation and layered closure of a traumatic wound.',
+    video: {
+      id: 'Y2i8prclQlk',
+      title: 'Laceration Repair: Simple Interrupted Suture Technique',
+    },
     equipment: [
       { item: 'Suture', detail: '6-0 for face, 4-0 or 5-0 for most limbs, 3-0 or 4-0 for scalp and over joints' },
       { item: 'Needle holder, toothed forceps, suture scissors' },

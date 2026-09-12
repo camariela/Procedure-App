@@ -8,6 +8,10 @@ export default defineProcedures('vascular-access', [
     acuity: 'urgent',
     summary:
       'Ultrasound-guided Seldinger placement of a large-bore catheter into a central vein.',
+    video: {
+      id: 'Xa022O--YbU',
+      title: 'Ultrasound-guided Internal Jugular Central Venous Catheterization: Needle and Guidewire',
+    },
     equipment: [
       { item: 'Central line kit', detail: 'Triple lumen for drugs, introducer sheath for volume' },
       { item: 'Ultrasound with linear probe, sterile cover and sterile gel' },
@@ -69,6 +73,10 @@ export default defineProcedures('vascular-access', [
     acuity: 'emergent',
     summary:
       'Drill-placed needle into the medullary cavity giving immediate central-equivalent access when veins fail.',
+    video: {
+      id: 'ZZMAVZhrDHE',
+      title: 'Arrow EZ-IO System - Proximal Tibia Site Identification and Needle Insertion (Adult, Alert)',
+    },
     equipment: [
       { item: 'IO driver and needle set', detail: '15 mm pink for small adults, 25 mm blue for most adults, 45 mm yellow for obese or humeral sites' },
       { item: 'Chlorhexidine swab' },
@@ -119,6 +127,10 @@ export default defineProcedures('vascular-access', [
     acuity: 'routine',
     summary:
       'Linear-probe guided cannulation of a deep forearm or upper arm vein in a patient with no visible or palpable targets.',
+    video: {
+      id: 'g81sjVANuiA',
+      title: 'Difficult IV: Tips for US-Guided IV Access',
+    },
     equipment: [
       { item: 'Ultrasound with high-frequency linear probe' },
       { item: 'Long cannula', detail: '18-20 G, 4.5-6.4 cm — a standard cannula will fall out of a deep vein' },

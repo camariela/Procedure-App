@@ -8,6 +8,10 @@ export default defineProcedures('cardiovascular', [
     acuity: 'emergent',
     summary:
       'Ultrasound-guided needle drainage of pericardial fluid to relieve tamponade physiology.',
+    video: {
+      id: '61FPmtw5RAM',
+      title: 'Ultrasound-Guided Pericardiocentesis',
+    },
     equipment: [
       { item: 'Ultrasound with phased-array probe', detail: 'Subxiphoid and parasternal windows' },
       { item: 'Spinal needle', detail: '18 G, 7-9 cm, or a dedicated pericardiocentesis needle' },
@@ -65,6 +69,10 @@ export default defineProcedures('cardiovascular', [
     acuity: 'emergent',
     summary:
       'Shock delivered on the R wave to terminate an unstable organised tachydysrhythmia.',
+    video: {
+      id: 'c165XePDzko',
+      title: 'Synchronized Cardioversion Demonstration HD 1080p',
+    },
     equipment: [
       { item: 'Defibrillator with synchronisation mode' },
       { item: 'Self-adhesive pads', detail: 'Anterolateral or anteroposterior placement' },
@@ -114,6 +122,10 @@ export default defineProcedures('cardiovascular', [
     acuity: 'emergent',
     summary:
       'External electrical capture of the ventricle as a bridge in symptomatic bradycardia.',
+    video: {
+      id: 'I6toFKkZSw8',
+      title: 'Transcutaneous Pacing',
+    },
     equipment: [
       { item: 'Defibrillator or monitor with pacing mode' },
       { item: 'Pacing pads', detail: 'Anteroposterior placement gives the most reliable capture' },

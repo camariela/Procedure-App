@@ -8,6 +8,10 @@ export default defineProcedures('neurologic', [
     acuity: 'urgent',
     summary:
       'Needle sampling of cerebrospinal fluid from the lumbar cistern for diagnosis or pressure measurement.',
+    video: {
+      id: 'CKLpIDhuJrE',
+      title: 'Lumbar Puncture - Step By Step Procedure (NEJM)',
+    },
     equipment: [
       { item: 'Spinal needle', detail: '22 G atraumatic (pencil-point) preferred; 20-22 G cutting if measuring pressure' },
       { item: 'Manometer with three-way tap' },

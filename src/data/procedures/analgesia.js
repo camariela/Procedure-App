@@ -8,6 +8,10 @@ export default defineProcedures('analgesia', [
     acuity: 'urgent',
     summary:
       'Titrated sedation and analgesia to allow a painful or distressing procedure while preserving airway reflexes where possible.',
+    video: {
+      id: '297D9UM9fZs',
+      title: 'Procedural Sedation in the Emergency Department',
+    },
     equipment: [
       { item: 'Monitoring', detail: 'Continuous ECG, SpO2, waveform capnography, blood pressure every 3-5 minutes' },
       { item: 'Oxygen and suction, both tested' },
@@ -58,6 +62,10 @@ export default defineProcedures('analgesia', [
     acuity: 'routine',
     summary:
       'Anaesthesia of a single digit by blocking its paired dorsal and palmar digital nerves.',
+    video: {
+      id: 'jfj-iIXPCYw',
+      title: 'Digital Nerve Block Techniques (dorsal, volar/transthecal, web-space)',
+    },
     equipment: [
       { item: 'Lidocaine 1% plain or bupivacaine 0.25%', detail: '3-4 mL total is enough for a finger' },
       { item: '25 G or 27 G needle, 5 mL syringe' },

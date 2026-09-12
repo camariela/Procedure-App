@@ -74,7 +74,11 @@ navigation, search and the offline cache with no other change.
   aka: ['LP', 'spinal tap'],      // searchable synonyms
   acuity: 'urgent',               // 'emergent' | 'urgent' | 'routine'
   summary: 'One line: what it is and when you reach for it.',
-  videoId: 'abc123XYZ00',         // omit to keep the shared placeholder clip
+  video: {                        // omit entirely to fall back to the placeholder
+    id: 'abc123XYZ00',            // YouTube id
+    title: 'As published on YouTube',
+    checked: false,               // true once you have watched it end to end
+  },
   equipment: [{ item: 'Spinal needle', detail: '22 G atraumatic', optional: false }],
   indications: ['...'],
   contraindications: { absolute: ['...'], relative: ['...'] },
@@ -98,12 +102,22 @@ than as a blank screen.
 
 ## Videos
 
-Every procedure currently points at one shared placeholder clip, flagged in the
-UI with a "Placeholder video" badge. Replace a procedure's `videoId` with the
-real YouTube id and the badge disappears on its own.
+Every procedure points at a real YouTube video, each one taken from a web search
+for that procedure rather than composed by hand.
+
+**They have not been watched.** The sandbox this was built in blocks YouTube, so
+the ids could not be checked for liveness, embeddability or whether the content
+matches the steps. Each one therefore carries a **"Source unverified"** badge and
+shows its published title under the player, so a video that has been replaced,
+taken down or blocked from embedding is obvious rather than silent.
+
+Watching a video and setting `checked: true` in its data file turns the badge
+green. Swapping `id` and `title` replaces the video.
 
 The player is a facade: nothing loads from YouTube until the user presses play,
-so listings stay fast and the rest of the app works with no network.
+so listings stay fast and the rest of the app works with no network. The "Open
+on YouTube" and "Find another video" links stay visible whatever state the embed
+is in, so a dead video never leaves you stuck.
 
 ## Offline
 

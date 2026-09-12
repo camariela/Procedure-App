@@ -8,6 +8,10 @@ export default defineProcedures('musculoskeletal', [
     acuity: 'urgent',
     summary:
       'Relocation of an anteriorly dislocated glenohumeral joint, favouring gentle traction-free techniques first.',
+    video: {
+      id: 'Xvx-n0vf8pY',
+      title: 'The Cunningham Technique (multi-angle)',
+    },
     equipment: [
       { item: 'Analgesia', detail: 'IV opioid, intra-articular lidocaine, or procedural sedation' },
       { item: 'Intra-articular lidocaine kit', detail: '20 mL of 1% lidocaine, 20 G spinal needle', optional: true },
@@ -57,6 +61,10 @@ export default defineProcedures('musculoskeletal', [
     acuity: 'urgent',
     summary:
       'Needle aspiration of the knee joint to diagnose septic arthritis and crystal disease, or to relieve a tense effusion.',
+    video: {
+      id: 'imISVZaRlZU',
+      title: 'Arthrocentesis of the Knee (NEJM)',
+    },
     equipment: [
       { item: 'Needle', detail: '18-20 G, 1.5 inch' },
       { item: 'Syringes', detail: '20 mL for aspiration, larger for a big effusion' },
@@ -106,6 +114,10 @@ export default defineProcedures('musculoskeletal', [
     acuity: 'emergent',
     summary:
       'Needle manometry of a muscle compartment when compartment syndrome is suspected but the examination is unreliable.',
+    video: {
+      id: 'nXuYA32PCXo',
+      title: 'Measuring Intracompartmental Pressures (Stryker) - Live Demonstration',
+    },
     equipment: [
       { item: 'Handheld compartment pressure monitor', detail: 'Stryker device with side-port needle and prefilled saline syringe' },
       { item: 'Alternative setup', detail: 'Arterial line transducer, 18 G needle, saline-filled tubing and three-way tap', optional: true },

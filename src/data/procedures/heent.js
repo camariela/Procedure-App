@@ -8,6 +8,10 @@ export default defineProcedures('heent', [
     acuity: 'emergent',
     summary:
       'Sight-saving release of the lateral canthal tendon to decompress an orbital compartment syndrome.',
+    video: {
+      id: 'kcB50sVOBKs',
+      title: 'Lateral Canthotomy with Cantholysis',
+    },
     equipment: [
       { item: 'Lidocaine 1% with adrenaline, 25 G needle, 3 mL syringe' },
       { item: 'Straight haemostat' },
@@ -51,6 +55,10 @@ export default defineProcedures('heent', [
     acuity: 'urgent',
     summary:
       'Stepwise control of anterior and posterior nasal bleeding, from pressure through cautery to packing.',
+    video: {
+      id: 'XlMG2C0qQ5s',
+      title: 'The Management of Epistaxis',
+    },
     equipment: [
       { item: 'Nasal speculum and headlight' },
       { item: 'Suction with a Frazier tip' },
@@ -100,6 +108,10 @@ export default defineProcedures('heent', [
     acuity: 'urgent',
     summary:
       'Needle aspiration or incision of a peritonsillar collection to relieve trismus, odynophagia and airway narrowing.',
+    video: {
+      id: 'I5W27zV-dwI',
+      title: 'Peritonsillar Abscess Needle Aspiration',
+    },
     equipment: [
       { item: 'Headlight and tongue depressor' },
       { item: 'Topical anaesthetic', detail: 'Benzocaine or lidocaine spray, then infiltration with lidocaine and adrenaline' },

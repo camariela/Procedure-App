@@ -8,6 +8,10 @@ export default defineProcedures('thoracic', [
     acuity: 'emergent',
     summary:
       'Immediate needle release of a tension pneumothorax, buying minutes until a chest drain goes in.',
+    video: {
+      id: 'YzVXGvcL8PQ',
+      title: 'Needle Thoracostomy; Needle Chest Decompression for Tension Pneumothorax',
+    },
     equipment: [
       { item: 'Large-bore cannula', detail: '14 G, at least 8 cm long — a standard 4.5 cm cannula reaches the pleura in under half of adults' },
       { item: 'Chlorhexidine swab' },
@@ -51,6 +55,10 @@ export default defineProcedures('thoracic', [
     acuity: 'emergent',
     summary:
       'Blunt-dissected drain into the pleural space for air, blood or fluid.',
+    video: {
+      id: 'mTymlv3Ti1E',
+      title: 'Thoracostomy Tube (Chest Drain) Insertion Technique',
+    },
     equipment: [
       { item: 'Chest drain', detail: '28-32 Fr for haemothorax, 20-24 Fr or a pigtail for pneumothorax' },
       { item: 'Scalpel with No. 10 blade' },
