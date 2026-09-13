@@ -1,0 +1,250 @@
+/**
+ * Design system source. Compiled to ./app.css, which is what the page loads —
+ * the build runs here, never in the browser, so the app stays a folder of
+ * static files and still works with no network.
+ *
+ *   npm run build:css      once
+ *   npm run watch:css      while editing
+ *
+ * The token layer follows shadcn/ui: semantic CSS variables in `:root`, mapped
+ * into Tailwind's theme so `bg-card`, `text-muted-foreground` and `border-border`
+ * mean the same thing everywhere. shadcn's components are React, so what is
+ * ported here is the part that travels: the tokens, the radius and spacing
+ * scale, and each component's anatomy, written as utilities on the markup that
+ * the JS components already own.
+ */
+
+@import 'tailwindcss' source(none);
+@source '../../index.html';
+@source '../**/*.js';
+
+/* ── Typeface ─────────────────────────────────────────────────────────────
+   Self-hosted rather than linked from fonts.googleapis.com: a bedside app
+   that cannot reach the network must still render in its own type, and a
+   third-party request on every load is a round-trip we do not need.
+   Both are variable fonts, so every weight below costs one file. */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../../assets/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../../assets/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../../assets/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../../assets/fonts/space-grotesk-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ── Tokens ───────────────────────────────────────────────────────────────
+   Every colour below is load-bearing. Hue is the fastest thing the eye reads
+   in a hurry, so it is spent on meaning — how urgent, how rare, how safe,
+   which system — and never on decoration. */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Surfaces and ink */
+  --background: oklch(0.988 0.004 197);
+  --foreground: oklch(0.23 0.022 232);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.022 232);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.022 232);
+
+  /* Brand */
+  --primary: oklch(0.43 0.073 197);
+  --primary-foreground: oklch(0.985 0.008 197);
+
+  /* Quiet surfaces */
+  --secondary: oklch(0.962 0.008 210);
+  --secondary-foreground: oklch(0.32 0.03 214);
+  --muted: oklch(0.965 0.006 214);
+  --muted-foreground: oklch(0.525 0.022 218);
+  --accent: oklch(0.952 0.022 194);
+  --accent-foreground: oklch(0.36 0.055 197);
+
+  /* Lines */
+  --border: oklch(0.918 0.008 214);
+  --input: oklch(0.905 0.01 214);
+  --ring: oklch(0.6 0.085 197);
+
+  /* Clinical semantics — eight hues, each with one job */
+  --halo: oklch(0.53 0.213 22);           /* rehearse: rare and unforgiving */
+  --halo-foreground: oklch(0.985 0.01 22);
+  --emergent: oklch(0.545 0.198 30);        /* acuity */
+  --urgent: oklch(0.505 0.12 62);
+  --routine: oklch(0.485 0.1 165);
+  --caution: oklch(0.505 0.125 52);        /* the warning under a step */
+  --verified: oklch(0.52 0.11 158);      /* reviewed / watched */
+  --draft: oklch(0.51 0.028 250);         /* unverified, deliberately dull */
+  --destructive: oklch(0.505 0.195 27);
+  --info: oklch(0.495 0.13 248);          /* pearls: worth knowing, not a warning */
+  --complication: oklch(0.475 0.15 330);   /* what it costs when it goes wrong */
+
+  /* Organ systems. A colour per system makes the grid scannable and gives
+     every procedure page an inherited accent. */
+  --sys-airway: oklch(0.55 0.13 225);
+  --sys-cardiovascular: oklch(0.55 0.19 15);
+  --sys-vascular-access: oklch(0.55 0.11 165);
+  --sys-thoracic: oklch(0.55 0.18 345);
+  --sys-neurologic: oklch(0.55 0.19 285);
+  --sys-abdominal: oklch(0.55 0.13 75);
+  --sys-genitourinary: oklch(0.55 0.13 135);
+  --sys-obstetric: oklch(0.55 0.1 195);
+  --sys-musculoskeletal: oklch(0.55 0.19 315);
+  --sys-heent: oklch(0.55 0.15 45);
+  --sys-soft-tissue: oklch(0.55 0.14 105);
+  --sys-analgesia: oklch(0.55 0.16 255);
+}
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-halo: var(--halo);
+  --color-halo-foreground: var(--halo-foreground);
+  --color-emergent: var(--emergent);
+  --color-urgent: var(--urgent);
+  --color-routine: var(--routine);
+  --color-caution: var(--caution);
+  --color-verified: var(--verified);
+  --color-draft: var(--draft);
+  --color-destructive: var(--destructive);
+  --color-info: var(--info);
+  --color-complication: var(--complication);
+
+  /* Resolved per page from the system in view; see [data-system] below. */
+  --color-sys: var(--sys, var(--primary));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 22%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::after,
+    ::before {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* One assignment per system; every descendant then styles itself with
+     `text-sys` / `bg-sys` and inherits the right hue automatically. */
+  [data-system='airway'] { --sys: var(--sys-airway); }
+  [data-system='cardiovascular'] { --sys: var(--sys-cardiovascular); }
+  [data-system='vascular-access'] { --sys: var(--sys-vascular-access); }
+  [data-system='thoracic'] { --sys: var(--sys-thoracic); }
+  [data-system='neurologic'] { --sys: var(--sys-neurologic); }
+  [data-system='abdominal'] { --sys: var(--sys-abdominal); }
+  [data-system='genitourinary'] { --sys: var(--sys-genitourinary); }
+  [data-system='obstetric'] { --sys: var(--sys-obstetric); }
+  [data-system='musculoskeletal'] { --sys: var(--sys-musculoskeletal); }
+  [data-system='heent'] { --sys: var(--sys-heent); }
+  [data-system='soft-tissue'] { --sys: var(--sys-soft-tissue); }
+  [data-system='analgesia'] { --sys: var(--sys-analgesia); }
+
+  /* Shown only when the browser says we are offline; main.js owns the flag. */
+  .offline-banner { display: none; }
+  body.is-offline .offline-banner { display: flex; }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}

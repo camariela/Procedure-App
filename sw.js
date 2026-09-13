@@ -8,7 +8,7 @@
  * Bump CACHE_VERSION to force all clients onto fresh assets.
  */
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `emproc-${CACHE_VERSION}`;
 const SHELL = ['./', './index.html', './manifest.webmanifest'];
 

@@ -13,9 +13,11 @@ import { procedureById } from './data/index.js';
 import { homeView } from './views/home.js';
 import { systemView } from './views/system.js';
 import { procedureView, panelFor } from './views/procedure.js';
+import { rehearseView, rehearseAction } from './views/rehearse.js';
 import { notFoundView } from './views/not-found.js';
 import { ACTION_TICK, ACTION_RESET } from './components/checklist.js';
 import { ACTION_PLAY, mountEmbed } from './components/video.js';
+import { ACTION_EXPORT, exportRehearsalCalendar } from './views/home.js';
 
 const app = qs('#app');
 const searchInput = qs('#search');
@@ -25,6 +27,7 @@ const router = createRouter(
     { pattern: [], view: homeView },
     { pattern: ['system', ':systemId'], view: systemView },
     { pattern: ['procedure', ':procedureId'], view: procedureView },
+    { pattern: ['rehearse', ':procedureId'], view: rehearseView },
   ],
   notFoundView,
 );
@@ -38,6 +41,8 @@ const refreshPanel = () => {
 };
 
 onAction(app, 'click', (action, target, event) => {
+  if (rehearseAction(action)) return;
+
   const panel = target.closest('[data-panel]');
   const procedureId = panel?.dataset.procedure;
 
@@ -49,6 +54,11 @@ onAction(app, 'click', (action, target, event) => {
   if (action === ACTION_RESET && procedureId) {
     reset(procedureId, target.dataset.list);
     refreshPanel();
+  }
+
+  if (action === ACTION_EXPORT) {
+    exportRehearsalCalendar();
+    return;
   }
 
   if (action === ACTION_PLAY && procedureId) {

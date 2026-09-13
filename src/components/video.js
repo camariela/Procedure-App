@@ -18,38 +18,55 @@ import { embedUrl, isPlaceholderVideo, searchUrl, watchUrl } from '../data/confi
 
 export const ACTION_PLAY = 'play-video';
 
+const LINK =
+  'inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-border bg-background px-3 text-[0.83rem] font-medium shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground';
+
 export const videoPanel = (procedure) => {
   const { video } = procedure;
   const placeholder = isPlaceholderVideo(procedure);
 
   return html`
-    <figure class="video">
-      <div class="video__frame" data-video-frame>
-        <button class="video__facade" type="button" data-action="${ACTION_PLAY}">
-          <span class="video__play">${icon('play', { size: 32 })}</span>
-          <span class="video__facade-label">Play step-by-step video</span>
-          <span class="video__facade-sub">${video.title}</span>
+    <figure class="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
+      <div class="relative aspect-video w-full bg-foreground [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:size-full [&>iframe]:border-0" data-video-frame>
+        <button
+          class="group absolute inset-0 flex size-full cursor-pointer flex-col items-center justify-center gap-3 bg-linear-to-br from-primary via-foreground to-sys/70 px-6 text-center text-primary-foreground transition-opacity hover:opacity-95"
+          type="button"
+          data-action="${ACTION_PLAY}"
+        >
+          <span
+            class="grid size-16 place-items-center rounded-full bg-primary-foreground/15 pl-1 ring-1 ring-white/25 backdrop-blur-sm transition-transform group-hover:scale-105"
+            >${icon('play', { size: 30 })}</span
+          >
+          <span class="font-display text-[0.95rem] font-semibold tracking-tight">Play step-by-step video</span>
+          <span class="line-clamp-2 max-w-sm text-[0.8rem] leading-snug text-primary-foreground/70">${video.title}</span>
         </button>
       </div>
-      <figcaption class="video__caption">
+
+      <figcaption class="flex flex-col gap-2.5 p-4">
         ${videoBadge({ placeholder, checked: video.checked })}
-        <p class="video__title">${video.title}</p>
+        <p class="font-display text-[0.95rem] leading-snug font-medium tracking-tight text-card-foreground">
+          ${video.title}
+        </p>
         ${when(
           placeholder,
-          html`<p class="video__note">
-            No video sourced yet. Set <code>video</code> in this procedure's data file.
+          html`<p class="text-[0.83rem] leading-relaxed text-muted-foreground">
+            No video sourced yet. Set
+            <code class="rounded bg-muted px-1 py-0.5 font-mono text-[0.78rem]">video</code> in this
+            procedure's data file.
           </p>`,
         )}
         ${when(
           !placeholder && !video.checked,
-          html`<p class="video__note">
-            Sourced from a YouTube search and not yet watched end to end. Check it
-            matches the steps below, then set <code>checked: true</code> in the data file.
+          html`<p class="text-[0.83rem] leading-relaxed text-muted-foreground">
+            Sourced from a YouTube search and not yet watched end to end. Check it matches the steps,
+            then set
+            <code class="rounded bg-muted px-1 py-0.5 font-mono text-[0.78rem]">checked: true</code>
+            in the data file.
           </p>`,
         )}
-        <p class="video__links">
-          <a href="${watchUrl(video.id)}" target="_blank" rel="noopener">Open on YouTube</a>
-          <a href="${searchUrl(procedure.name)}" target="_blank" rel="noopener">Find another video</a>
+        <p class="flex flex-wrap gap-2 pt-0.5">
+          <a class="${LINK}" href="${watchUrl(video.id)}" target="_blank" rel="noopener">Open on YouTube</a>
+          <a class="${LINK}" href="${searchUrl(procedure.name)}" target="_blank" rel="noopener">Find another video</a>
         </p>
       </figcaption>
     </figure>

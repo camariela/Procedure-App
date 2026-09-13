@@ -8,26 +8,49 @@
       name="description"
       content="Emergency medicine procedures by organ system: step videos, equipment checklists, indications and contraindications."
     />
-    <meta name="theme-color" content="#0f2e33" />
+    <meta name="theme-color" content="#0b3a3f" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./assets/icon-192.png" />
-    <link rel="stylesheet" href="./src/styles/tokens.css" />
-    <link rel="stylesheet" href="./src/styles/base.css" />
-    <link rel="stylesheet" href="./src/styles/components.css" />
+    <link rel="preload" href="./assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./src/styles/app.css" />
   </head>
-  <body>
-    <a class="skip" href="#app">Skip to content</a>
+  <body class="flex min-h-dvh flex-col bg-background text-foreground antialiased">
+    <a
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
+      href="#app"
+      >Skip to content</a
+    >
 
-    <header class="topbar">
-      <div class="topbar__inner">
-        <a class="brand" href="#/">
-          <span class="brand__mark" aria-hidden="true">EM</span>
-          <span class="brand__name">Procedures</span>
-        </a>
-        <form class="searchbar" role="search" onsubmit="return false">
-          <label class="visually-hidden" for="search">Search procedures</label>
-          <svg class="searchbar__icon" viewBox="0 0 24 24" aria-hidden="true">
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-primary text-primary-foreground shadow-sm">
+      <div class="mx-auto flex max-w-3xl flex-col gap-3 px-4 pt-3 pb-3.5 sm:px-6">
+        <div class="flex items-center justify-between gap-3">
+          <a class="group flex items-center gap-2.5 rounded-md" href="#/">
+            <span
+              class="grid size-8 place-items-center rounded-lg bg-primary-foreground/15 font-display text-[0.7rem] font-bold tracking-widest ring-1 ring-white/15"
+              aria-hidden="true"
+              >EM</span
+            >
+            <span class="font-display text-[1.05rem] font-semibold tracking-tight">Procedures</span>
+          </a>
+          <span
+            class="hidden font-display text-[0.7rem] font-medium tracking-[0.14em] text-primary-foreground/55 uppercase sm:block"
+            >Reference only</span
+          >
+        </div>
+
+        <form class="relative" role="search" onsubmit="return false">
+          <label class="sr-only" for="search">Search procedures</label>
+          <svg
+            class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary-foreground/55"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
             <circle cx="11" cy="11" r="6.5" />
             <path d="M16 16l4 4" />
           </svg>
@@ -37,26 +60,39 @@
             placeholder="Search procedures, kit or indications"
             autocomplete="off"
             enterkeyhint="search"
+            class="h-10 w-full rounded-lg border border-white/15 bg-primary-foreground/10 pr-3 pl-9 text-[0.95rem] text-primary-foreground shadow-xs transition-colors outline-none placeholder:text-primary-foreground/50 focus-visible:border-white/40 focus-visible:bg-primary-foreground/15 focus-visible:ring-[3px] focus-visible:ring-white/20 [&::-webkit-search-cancel-button]:hidden"
           />
         </form>
       </div>
-      <p class="offline-banner" role="status">Offline — videos unavailable, everything else works.</p>
+
+      <p
+        class="offline-banner items-center justify-center gap-2 border-t border-white/10 bg-urgent/20 px-4 py-1.5 text-center font-display text-[0.78rem] font-medium tracking-tight"
+        role="status"
+      >
+        <span class="inline-block size-1.5 shrink-0 rounded-full bg-urgent" aria-hidden="true"></span>
+        Offline — videos unavailable, everything else works.
+      </p>
     </header>
 
-    <main id="app" class="shell"></main>
+    <main id="app" class="mx-auto w-full max-w-3xl px-4 pt-6 pb-14 sm:px-6"></main>
 
-    <footer class="footer">
-      <p class="footer__disclaimer">
-        <strong>Reference only.</strong> Content is drafted for training and quick recall and is
-        <strong>not clinically reviewed</strong>. It does not replace institutional protocols,
-        senior support or clinical judgement. Verify doses and technique against your local
-        guidance before acting.
-      </p>
-      <p class="footer__meta">Built to be edited — add a procedure by adding a record to its organ-system data file.</p>
+    <footer class="mt-auto border-t border-border bg-muted/60">
+      <div class="mx-auto max-w-3xl space-y-2.5 px-4 py-8 sm:px-6">
+        <p class="text-[0.82rem] leading-relaxed text-muted-foreground">
+          <strong class="font-semibold text-foreground">Reference only.</strong> Content is drafted
+          for training and quick recall and is
+          <strong class="font-semibold text-destructive">not clinically reviewed</strong>. It does
+          not replace institutional protocols, senior support or clinical judgement. Verify doses
+          and technique against your local guidance before acting.
+        </p>
+        <p class="text-[0.78rem] text-muted-foreground">
+          Built to be edited — add a procedure by adding a record to its organ-system data file.
+        </p>
+      </div>
     </footer>
 
     <noscript>
-      <p class="noscript">This app needs JavaScript enabled.</p>
+      <p class="mx-auto max-w-3xl px-4 py-8 text-sm">This app needs JavaScript enabled.</p>
     </noscript>
 
     <script type="module" src="./src/main.js"></script>

@@ -26,6 +26,14 @@ const PATHS = {
     '<path d="M12 3.5v17"/><path d="M8.5 6.5 15.5 9M8.5 11 15.5 13.5M8.5 15.5 15.5 18"/>',
   syringe:
     '<path d="M4 20l3.5-3.5M8.5 15.5 15 9l3 3-6.5 6.5ZM14 7l3 3M16 5l3 3M11 12l1.5 1.5"/>',
+  mic: '<path d="M12 3.5a2.7 2.7 0 0 1 2.7 2.7v5.3a2.7 2.7 0 0 1-5.4 0V6.2A2.7 2.7 0 0 1 12 3.5Z"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v3M9 20.5h6"/>',
+  stop: '<rect x="6.5" y="6.5" width="11" height="11" rx="2"/>',
+  calendar:
+    '<rect x="3.5" y="5.5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4"/>',
+  target:
+    '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
+  keyboard:
+    '<rect x="2.5" y="6.5" width="19" height="11" rx="2"/><path d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M6 13.5h.01M18 10h.01M8.5 14h7"/>',
   search: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/>',
   back: '<path d="M15 5l-7 7 7 7"/>',
   play: '<path d="M8 5.5v13l11-6.5Z"/>',
@@ -41,7 +49,7 @@ const PATHS = {
 export const icon = (name, { size = 24, className = '' } = {}) =>
   PATHS[name]
     ? html`<svg
-        class="icon ${className}"
+        class="shrink-0 ${className}"
         viewBox="0 0 24 24"
         width="${size}"
         height="${size}"

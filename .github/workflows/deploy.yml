@@ -1,6 +1,8 @@
 name: Deploy to GitHub Pages
 
-# No build step: the app is plain ES modules, so the repository is the artifact.
+# The repository is the artifact: the app is plain ES modules and the compiled
+# stylesheet is committed, so nothing is built here. The CSS is rebuilt only to
+# prove the committed copy matches its source.
 on:
   push:
     branches:
@@ -34,7 +36,21 @@ jobs:
           console.log(\`\${PROCEDURES.length} procedures across \${SYSTEM_INDEX.length} systems\`);
           "
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check the committed stylesheet matches its source
+        run: |
+          npm ci
+          npm run build:css
+          git diff --exit-code --stat src/styles/app.css \
+            || { echo '::error::src/styles/app.css is stale. Run `npm run build:css` and commit the result.'; exit 1; }
+
       - uses: actions/configure-pages@v5
+
+      - name: Drop build-only files from the artifact
+        run: rm -rf node_modules package.json package-lock.json src/styles/app.src.css
 
       - uses: actions/upload-pages-artifact@v3
         with:
