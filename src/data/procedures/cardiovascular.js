@@ -171,7 +171,7 @@ export default defineProcedures('cardiovascular', [
     name: 'Transvenous Pacemaker Placement',
     aka: ['TVP', 'temporary transvenous pacing', 'emergency pacing wire', 'floating a pacing wire'],
     acuity: 'emergent',
-    frequency: 'halo',
+    frequency: 'occasional',
     summary:
       'Balloon-tipped pacing catheter floated through a central sheath into the right ventricle when transcutaneous pacing has failed or cannot be sustained.',
     video: {

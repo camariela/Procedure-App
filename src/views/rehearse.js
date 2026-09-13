@@ -1,6 +1,10 @@
 /**
- * Verbal rehearsal: watch it, then say it from memory, then find out what you
- * left out.
+ * Mental simulation: watch it, picture it, then say it from memory and find out
+ * what you left out.
+ *
+ * Mental practice — rehearsing a procedure in the mind's eye and out loud
+ * without touching a patient — is the cheapest way to hold a procedure you
+ * almost never perform.
  *
  * Three stages, held in module state rather than the URL, because a half-spoken
  * run-through is not something to restore from a bookmark. The rest of the app
@@ -57,7 +61,7 @@ const stageDots = (stage) => {
   ];
   const current = stages.findIndex(([id]) => id === stage);
   return html`
-    <ol class="mb-5 flex items-center gap-1.5" aria-label="Rehearsal progress">
+    <ol class="mb-5 flex items-center gap-1.5" aria-label="Simulation progress">
       ${stages.map(
         ([id, label], index) => html`
           <li class="flex flex-1 items-center gap-1.5">
@@ -80,8 +84,9 @@ const stageDots = (stage) => {
 const watchStage = (procedure) => html`
   <div class="grid gap-4">
     <p class="text-[0.9rem] leading-relaxed text-muted-foreground">
-      Watch it once, all the way through, with the steps in front of you. Then close them and say
-      the whole thing out loud from memory — the saying is the part that makes it stick.
+      Watch it once, all the way through, with the steps in front of you. Then close them, picture
+      yourself doing it, and say the whole thing out loud from memory. Seeing it and saying it are
+      the parts that make it hold.
     </p>
     ${videoPanel(procedure)}
     <div class="flex flex-wrap gap-2">
@@ -103,8 +108,9 @@ const recallStage = (procedure) => html`
         <span class="tabular">${procedure.steps.length}</span> steps
       </h2>
       <p class="mt-2 text-[0.88rem] leading-relaxed text-foreground/85">
-        Out loud, in order, in your own words, as if you were briefing the team. Say the numbers —
-        sizes, doses, landmarks and times are scored. Nothing is uploaded or kept but the text.
+        Out loud, in order, in your own words, as if you were talking a registrar through it. Picture
+        each landmark as you name it. Say the numbers — sizes, doses, landmarks and times are all
+        scored. Nothing is uploaded or kept but the text.
       </p>
     </div>
 
@@ -355,7 +361,7 @@ export const rehearseView = ({ captured }) => {
       ${backLink(href(`/procedure/${procedure.id}`), procedure.name)}
       <header class="mt-3 mb-5">
         <p class="font-display text-[0.7rem] font-bold tracking-[0.14em] text-sys uppercase">
-          ${system.name} · Rehearsal
+          ${system.name} · Mental Simulation
         </p>
         <h1 class="mt-1 font-display text-[1.6rem] leading-[1.15] font-bold tracking-tight">
           ${procedure.name}

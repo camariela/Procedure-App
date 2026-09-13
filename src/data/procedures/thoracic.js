@@ -6,7 +6,7 @@ export default defineProcedures('thoracic', [
     name: 'Needle Thoracostomy',
     aka: ['needle decompression', 'tension pneumothorax decompression'],
     acuity: 'emergent',
-    frequency: 'halo',
+    frequency: 'occasional',
     summary:
       'Immediate needle release of a tension pneumothorax, buying minutes until a chest drain goes in.',
     video: {

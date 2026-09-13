@@ -28,15 +28,8 @@ export const exportRehearsalCalendar = () => {
   downloadCalendar(rehearsalCalendar(entries, appUrl));
 };
 
-const sectionTitle = (title, note = '') => html`
-  <h2 class="font-display text-[1.3rem] font-bold tracking-tight">
-    ${title}${when(
-      note,
-      html`<span class="ml-2 align-middle font-display text-[0.72rem] font-semibold tracking-[0.1em] text-muted-foreground uppercase">
-        ${note}
-      </span>`,
-    )}
-  </h2>
+const sectionTitle = (title) => html`
+  <h2 class="font-display text-[1.3rem] font-bold tracking-tight">${title}</h2>
 `;
 
 const systemGrid = () => html`
@@ -75,14 +68,19 @@ const rehearseBand = () => {
     <section
       class="mb-9 rounded-2xl border border-halo/20 bg-linear-to-b from-halo/8 to-transparent p-4 sm:p-5"
     >
-      <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-        ${sectionTitle('Rehearse', 'high acuity, low occurrence')}
+      <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+        <p class="font-display text-[0.68rem] font-bold tracking-[0.16em] text-halo uppercase">
+          High acuity, low occurrence
+        </p>
         ${dueSummary(due.length, HALO_PROCEDURES.length)}
       </div>
-      <p class="mt-1.5 mb-3.5 max-w-prose text-[0.88rem] leading-relaxed text-muted-foreground">
+      <h2 class="mt-1.5 font-display text-[1.3rem] leading-tight font-bold tracking-tight">
+        Mental Simulation and Visualization
+      </h2>
+      <p class="mt-2 mb-3.5 max-w-prose text-[0.88rem] leading-relaxed text-muted-foreground">
         <span class="font-semibold tabular text-foreground">${HALO_PROCEDURES.length}</span>
-        procedures you will do rarely and badly unless you practise them cold. Say one out loud when
-        nothing is happening, not when it is.
+        procedures you will do rarely and badly unless you run them cold. Picture the anatomy, talk
+        the whole thing through out loud, and do it when nothing is happening — not when it is.
       </p>
       <div class="mb-4 flex flex-wrap gap-2">
         ${when(
@@ -90,7 +88,7 @@ const rehearseBand = () => {
           html`<a
             class="inline-flex h-9 items-center gap-1.5 rounded-lg bg-halo px-3.5 font-display text-[0.83rem] font-semibold text-halo-foreground shadow-xs transition-colors hover:bg-halo/90"
             href="${href(`/rehearse/${due[0].procedure.id}`)}"
-            >${icon('mic', { size: 15 })} Rehearse ${due[0].procedure.name}</a
+            >${icon('mic', { size: 15 })} Start a simulation</a
           >`,
         )}
         <button

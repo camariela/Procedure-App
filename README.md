@@ -1,9 +1,9 @@
 # EM Procedures
 
 A mobile-first reference for emergency medicine procedures: watch the video, tick
-off the kit, then work through the steps — and, for the HALO set, say the whole
-thing out loud from memory and find out what you left out. Plain ES modules, no
-framework, no runtime dependencies, works offline.
+off the kit, then work through the steps — and, for the HALO set, picture it and
+say the whole thing out loud from memory to find out what you left out. Plain ES
+modules, no framework, no runtime dependencies, works offline.
 
 > **Reference only.** The clinical content is drafted for training and quick
 > recall and is **not clinically reviewed**. Every procedure carries a visible
@@ -61,7 +61,7 @@ src/
     storage.js          Namespaced, failure-tolerant localStorage
     checklist.js        Tick state for equipment and steps
     search.js           Scored substring search over the catalogue
-    rehearsal.js        Spaced-rehearsal schedule for the HALO set
+    rehearsal.js        Spaced schedule for the HALO set
     score.js            Marks a spoken or typed run-through against the steps
     speech.js           Web Speech API wrapper, with capability detection
     ics.js              Calendar export, so reminders arrive on a real device
@@ -72,6 +72,9 @@ src/
     procedures/*.js     One file per organ system
     index.js            Assembles, validates and indexes the catalogue
   views/                One function per route: home, system, procedure, rehearse, 404
+                        (the code says "rehearse" where the interface says
+                        "mental simulation" — renaming the storage key would
+                        discard anyone's existing schedule)
   components/           Reusable pieces: cards, badges, video, tick lists, sections
   styles/
     app.src.css         Design tokens and font faces — the source
@@ -80,8 +83,8 @@ assets/fonts/           Self-hosted Inter and Space Grotesk (variable, woff2)
 ```
 
 Views are pure functions of the route and return escaped HTML. State lives in
-the URL (route and open tab) and `localStorage` (tick state, rehearsal
-schedule). The one exception is the rehearsal screen, which holds a half-spoken
+the URL (route and open tab) and `localStorage` (tick state, simulation
+schedule). The one exception is the simulation screen, which holds a half-spoken
 run-through in module state and says so in its own header comment.
 
 ## Styling
@@ -153,7 +156,7 @@ screen.
 
 `frequency` is how often one clinician actually performs the procedure, which is
 a different axis from how sick the patient is. `halo` — high acuity, low
-occurrence — marks the rehearsal set: rare enough that you will be rusty,
+occurrence — marks the simulation set: rare enough that you will be rusty,
 unforgiving enough that rust matters. Those records are collected into
 `HALO_PROCEDURES` and lead the home screen.
 
@@ -183,10 +186,13 @@ so listings stay fast and the rest of the app works with no network. The "Open
 on YouTube" and "Find another video" links stay visible whatever state the embed
 is in, so a dead video never leaves you stuck.
 
-## Rehearsal
+## Mental Simulation and Visualization
 
 Procedural skill decays with disuse, and the procedures you most need to be good
-at are the ones you do least. The HALO set therefore has a rehearsal loop.
+at are the ones you do least. Mental practice — running a procedure in the
+mind's eye and out loud, without a patient or a manikin — is the cheapest way to
+hold onto one you almost never perform. The HALO set therefore has a simulation
+loop.
 
 **The schedule.** `LADDER` in `src/lib/rehearsal.js` is `[30, 60, 90, 180]`
 days. A pass moves you up a rung; a failed run-through drops you back to the
@@ -197,7 +203,8 @@ resuscitation procedural skills within three to six months without practice,
 which is why retraining has moved towards low-dose, high-frequency — not a
 citation of any one guideline. Change `LADDER` and every schedule follows.
 
-**The run-through.** Watch the video, then talk through every step from memory.
+**The run-through.** Watch the video, then picture yourself doing it and talk
+through every step from memory.
 `src/lib/score.js` marks what you said against the step list and reports two
 numbers, because they fail differently: *coverage* (did every step get said at
 all — the dangerous failure) and *order* (were the ones you said in sequence).
@@ -226,7 +233,7 @@ offline. Only the transcript is stored, locally.
 Both need a server holding a subscription and doing the sending, and there isn't
 one. Rather than pretend otherwise, *Add reminders to calendar* exports an
 `.ics` file: one repeating appointment per HALO procedure, at its own interval,
-each with an alarm and a deep link straight into that procedure's rehearsal
+each with an alarm and a deep link straight into that procedure's simulation
 screen. Your calendar then does the reminding — on your phone, and by email if
 you have that switched on. Nothing leaves the device to produce it.
 

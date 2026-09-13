@@ -53,11 +53,11 @@ export const rehearsalCalendar = (entries, appUrl, now = new Date()) => {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//EM Procedures//HALO rehearsal//EN',
+    'PRODID:-//EM Procedures//HALO mental simulation//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
-    'X-WR-CALNAME:HALO rehearsal',
-    'X-WR-CALDESC:Spaced rehearsal of high acuity, low occurrence procedures.',
+    'X-WR-CALNAME:HALO mental simulation',
+    'X-WR-CALDESC:Spaced mental simulation of high acuity, low occurrence procedures.',
   ];
 
   for (const { procedure, standing } of entries) {
@@ -66,9 +66,9 @@ export const rehearsalCalendar = (entries, appUrl, now = new Date()) => {
       ? new Date(standing.due)
       : new Date(now.getTime() + 86_400_000);
     const url = `${appUrl}#/rehearse/${procedure.id}`;
-    const summary = `Rehearse: ${procedure.name}`;
+    const summary = `Mental simulation: ${procedure.name}`;
     const detail =
-      `${procedure.summary}\n\nHigh acuity, low occurrence — rehearsed every ` +
+      `${procedure.summary}\n\nHigh acuity, low occurrence — simulated every ` +
       `${standing.interval} days.\n\n${url}`;
 
     lines.push(
@@ -81,7 +81,7 @@ export const rehearsalCalendar = (entries, appUrl, now = new Date()) => {
       fold(`SUMMARY:${esc(summary)}`),
       fold(`DESCRIPTION:${esc(detail)}`),
       fold(`URL:${esc(url)}`),
-      'CATEGORIES:HALO,Rehearsal',
+      'CATEGORIES:HALO,Mental simulation',
       'BEGIN:VALARM',
       'ACTION:DISPLAY',
       'TRIGGER:PT0S',
@@ -96,7 +96,7 @@ export const rehearsalCalendar = (entries, appUrl, now = new Date()) => {
 };
 
 /** Hand the file to the browser. Nothing leaves the device. */
-export const downloadCalendar = (text, filename = 'halo-rehearsal.ics') => {
+export const downloadCalendar = (text, filename = 'halo-mental-simulation.ics') => {
   const url = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' }));
   const link = document.createElement('a');
   link.href = url;

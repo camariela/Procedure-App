@@ -114,7 +114,7 @@ export default defineProcedures('musculoskeletal', [
     name: 'Compartment Pressure Measurement',
     aka: ['Stryker', 'intracompartmental pressure', 'compartment syndrome'],
     acuity: 'emergent',
-    frequency: 'halo',
+    frequency: 'occasional',
     summary:
       'Needle manometry of a muscle compartment when compartment syndrome is suspected but the examination is unreliable.',
     video: {
