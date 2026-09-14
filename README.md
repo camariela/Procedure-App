@@ -169,8 +169,8 @@ unforgiving enough that rust matters. Those records are collected into
 
 ## Videos
 
-Every procedure points at a real YouTube video, each one taken from a web search
-for that procedure rather than composed by hand.
+Every procedure points at a real YouTube video — most taken from a web search for
+that procedure, some supplied directly.
 
 **They have not been watched.** The sandbox this was built in blocks YouTube, so
 the ids could not be checked for liveness, embeddability or whether the content

@@ -58,8 +58,7 @@ export const videoPanel = (procedure) => {
         ${when(
           !placeholder && !video.checked,
           html`<p class="text-[0.83rem] leading-relaxed text-muted-foreground">
-            Sourced from a YouTube search and not yet watched end to end. Check it matches the steps,
-            then set
+            Not yet watched end to end. Check it matches the steps, then set
             <code class="rounded bg-muted px-1 py-0.5 font-mono text-[0.78rem]">checked: true</code>
             in the data file.
           </p>`,
