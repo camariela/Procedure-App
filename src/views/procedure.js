@@ -20,11 +20,11 @@ import { notFoundView } from './not-found.js';
 export const panelFor = (procedure, sectionId) => sectionById(sectionId).render(procedure);
 
 const TAB =
-  'inline-flex h-8 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 font-display text-[0.82rem] font-semibold tracking-tight transition-all';
+  'inline-flex min-h-9 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-center font-display text-[0.78rem] leading-tight font-semibold tracking-tight transition-all';
 
 const tabs = (procedure, activeId) => html`
   <nav
-    class="mb-4 grid grid-cols-4 gap-1 rounded-lg bg-muted p-[3px] ring-1 ring-border/60"
+    class="mb-4 grid grid-cols-2 gap-1 rounded-lg bg-muted p-[3px] ring-1 ring-border/60 sm:grid-cols-4"
     role="tablist"
     aria-label="Procedure sections"
   >

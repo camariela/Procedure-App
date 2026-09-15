@@ -55,8 +55,8 @@ const equipmentPanel = (procedure) =>
 const stepsPanel = (procedure) => html`
   <div class="grid gap-4">
     <p class="text-[0.85rem] leading-relaxed text-muted-foreground">
-      Written backup for the video. The video shows the anatomy; this is here for when you want the
-      sequence in words.
+      The video demonstrates the anatomy; this is the sequence in text. Tick each step as it is
+      completed.
     </p>
     ${tickList({
       procedureId: procedure.id,
@@ -97,9 +97,20 @@ const safetyPanel = (procedure) => {
  */
 export const SECTIONS = [
   { id: 'video', label: 'Video', icon: 'play', tone: 'text-primary', render: videoPanel },
-  { id: 'equipment', label: 'Kit', icon: 'kit', tone: 'text-info', render: equipmentPanel },
-  { id: 'steps', label: 'Steps', icon: 'book', tone: 'text-routine', render: stepsPanel },
-  { id: 'safety', label: 'Safety', icon: 'warning', tone: 'text-destructive', render: safetyPanel },
+  { id: 'equipment', label: 'Equipment', icon: 'kit', tone: 'text-info', render: equipmentPanel },
+  { id: 'steps', label: 'Technique', icon: 'book', tone: 'text-routine', render: stepsPanel },
+  {
+    id: 'safety',
+    label: 'Indications / Contraindications',
+    icon: 'warning',
+    tone: 'text-destructive',
+    render: safetyPanel,
+  },
 ];
+
+/*
+ * The ids are the URL (`?section=technique` would break every link already
+ * shared), so labels change here and ids do not.
+ */
 
 export const sectionById = (id) => SECTIONS.find((section) => section.id === id) ?? SECTIONS[0];

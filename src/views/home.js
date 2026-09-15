@@ -83,14 +83,11 @@ const rehearseBand = () => {
         the whole thing through out loud, and do it when nothing is happening — not when it is.
       </p>
       <div class="mb-4 flex flex-wrap gap-2">
-        ${when(
-          due.length,
-          html`<a
-            class="inline-flex h-9 items-center gap-1.5 rounded-lg bg-halo px-3.5 font-display text-[0.83rem] font-semibold text-halo-foreground shadow-xs transition-colors hover:bg-halo/90"
-            href="${href(`/rehearse/${due[0].procedure.id}`)}"
-            >${icon('mic', { size: 15 })} Start a simulation</a
-          >`,
-        )}
+        <a
+          class="inline-flex h-9 items-center gap-1.5 rounded-lg bg-halo px-3.5 font-display text-[0.83rem] font-semibold text-halo-foreground shadow-xs transition-colors hover:bg-halo/90"
+          href="${href('/rehearse')}"
+          >${icon('mic', { size: 15 })} Choose one to simulate</a
+        >
         <button
           class="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border bg-background px-3.5 font-display text-[0.83rem] font-semibold shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground"
           type="button"

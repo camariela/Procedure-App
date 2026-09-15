@@ -1,14 +1,33 @@
 # EM Procedures
 
 A mobile-first reference for emergency medicine procedures: watch the video, tick
-off the kit, then work through the steps — and, for the HALO set, picture it and
-say the whole thing out loud from memory to find out what you left out. Plain ES
-modules, no framework, no runtime dependencies, works offline.
+off the equipment, then work through the technique — and, for the HALO set,
+picture it and say the whole thing out loud from memory to find out what you
+left out. Plain ES modules, no framework, no runtime dependencies, works
+offline.
 
 > **Reference only.** The clinical content is drafted for training and quick
 > recall and is **not clinically reviewed**. Every procedure carries a visible
 > draft badge until a clinician verifies it. It does not replace local protocols,
 > senior support or clinical judgement.
+
+## Sourcing
+
+Technique is written in clinical register against standard emergency medicine
+practice — the content of Tintinalli, Rosen's, UpToDate and the major FOAMed
+educators.
+
+**None of it is a verified citation.** The environment this was written in
+cannot reach accessmedicine.mhmedical.com, uptodate.com, medscape.com,
+openevidence.com, rebelem.com, emcrit.org, emdocs.net or litfl.com — every one
+is blocked at the network layer. Nothing here was checked against a current
+edition, and no page, chapter or episode is cited, because a citation nobody
+verified is worse than none.
+
+Treat every record as a draft to be checked against your own copy of the
+source. The `verified` flag on each procedure exists for exactly that: set it
+true once a clinician has read the record against a real reference, and the
+draft badge disappears.
 
 ## Running it locally
 
@@ -71,7 +90,8 @@ src/
     config.js           Video ids and YouTube URL builders
     procedures/*.js     One file per organ system
     index.js            Assembles, validates and indexes the catalogue
-  views/                One function per route: home, system, procedure, rehearse, 404
+  views/                One per route: home, system, procedure, rehearse index,
+                        rehearse, 404
                         (the code says "rehearse" where the interface says
                         "mental simulation" — renaming the storage key would
                         discard anyone's existing schedule)
@@ -202,6 +222,9 @@ reasonable reading of the skill-decay literature — measurable decay in
 resuscitation procedural skills within three to six months without practice,
 which is why retraining has moved towards low-dose, high-frequency — not a
 citation of any one guideline. Change `LADDER` and every schedule follows.
+
+**Choosing one.** The home band opens a chooser listing the whole HALO set,
+worst standing first. It does not pick for you.
 
 **The run-through.** Watch the video, then picture yourself doing it and talk
 through every step from memory.

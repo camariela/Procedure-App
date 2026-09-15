@@ -14,6 +14,7 @@ import { homeView } from './views/home.js';
 import { systemView } from './views/system.js';
 import { procedureView, panelFor } from './views/procedure.js';
 import { rehearseView, rehearseAction } from './views/rehearse.js';
+import { simulateIndexView } from './views/simulate-index.js';
 import { notFoundView } from './views/not-found.js';
 import { ACTION_TICK, ACTION_RESET } from './components/checklist.js';
 import { ACTION_PLAY, mountEmbed } from './components/video.js';
@@ -27,6 +28,7 @@ const router = createRouter(
     { pattern: [], view: homeView },
     { pattern: ['system', ':systemId'], view: systemView },
     { pattern: ['procedure', ':procedureId'], view: procedureView },
+    { pattern: ['rehearse'], view: simulateIndexView },
     { pattern: ['rehearse', ':procedureId'], view: rehearseView },
   ],
   notFoundView,
