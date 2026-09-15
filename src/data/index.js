@@ -50,6 +50,20 @@ if (duplicate) throw new Error(`Duplicate procedure id: ${duplicate}`);
 
 export const procedureById = new Map(PROCEDURES.map((procedure) => [procedure.id, procedure]));
 
+/**
+ * Ids that changed when the catalogue moved to US spelling, kept as aliases so
+ * that links already shared — including the deep links inside calendar entries
+ * exported before the change — still resolve.
+ */
+const RENAMED = {
+  'massive-haemoptysis': 'massive-hemoptysis',
+  'post-tonsillectomy-haemorrhage': 'post-tonsillectomy-hemorrhage',
+  'difficult-urethral-catheterisation': 'difficult-urethral-catheterization',
+  'synchronised-cardioversion': 'synchronized-cardioversion',
+  'paediatric-front-of-neck-access': 'pediatric-front-of-neck-access',
+};
+for (const [was, now] of Object.entries(RENAMED)) procedureById.set(was, procedureById.get(now));
+
 export const proceduresBySystem = (systemId) =>
   PROCEDURES.filter((procedure) => procedure.systemId === systemId);
 

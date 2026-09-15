@@ -38,7 +38,7 @@ const stem = (word) =>
     .replace(/(ing|ed)$/, '');
 
 /** Spoken numbers arrive as words about half the time; clinical numbers matter. */
-const normalise = (text) =>
+const normalize = (text) =>
   String(text ?? '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
@@ -50,7 +50,7 @@ const normalise = (text) =>
 /** Content words worth matching on: no stopwords, no one-letter noise. */
 export const terms = (text) => {
   const out = [];
-  for (const word of normalise(text)) {
+  for (const word of normalize(text)) {
     if (STOPWORDS.has(word)) continue;
     if (word.length < 3 && !/\d/.test(word)) continue;
     const key = /\d/.test(word) ? word : stem(word);
@@ -111,7 +111,7 @@ export const PASS_MARK = 80;
  * @param {string} transcript What the clinician actually said.
  */
 export const scoreRecall = (steps, transcript) => {
-  const spoken = normalise(transcript).map((word) => (/\d/.test(word) ? word : stem(word)));
+  const spoken = normalize(transcript).map((word) => (/\d/.test(word) ? word : stem(word)));
   const spokenAt = new Map();
   spoken.forEach((word, index) => {
     if (!spokenAt.has(word)) spokenAt.set(word, index);

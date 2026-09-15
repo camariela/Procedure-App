@@ -36,7 +36,7 @@ export const ACTIONS = {
 
 /** @type {{id: string, stage: string, transcript: string, result: object|null, error: string, mode: string, recording: boolean}|null} */
 let session = null;
-let recogniser = null;
+let recognizer = null;
 
 const fresh = (id) => ({
   id,
@@ -402,7 +402,7 @@ export const rehearseAction = (action) => {
       session.error = '';
       session.transcript = '';
       session.recording = true;
-      recogniser = listen({
+      recognizer = listen({
         onTranscript: (text) => {
           session.transcript = text;
           const live = qs('[data-rehearse] .max-h-40');
@@ -421,7 +421,7 @@ export const rehearseAction = (action) => {
         },
       });
       try {
-        recogniser.start();
+        recognizer.start();
       } catch {
         session.error = 'Could not start the microphone.';
         session.recording = false;
@@ -431,15 +431,15 @@ export const rehearseAction = (action) => {
 
     case ACTIONS.stop:
       session.recording = false;
-      recogniser?.stop();
-      recogniser = null;
-      // Give the recogniser a beat to flush its last phrase before scoring.
+      recognizer?.stop();
+      recognizer = null;
+      // Give the recognizer a beat to flush its last phrase before scoring.
       setTimeout(() => score(procedure), 250);
       return true;
 
     case ACTIONS.type:
-      recogniser?.stop();
-      recogniser = null;
+      recognizer?.stop();
+      recognizer = null;
       session.recording = false;
       session.mode = session.mode === 'typed' ? 'speech' : 'typed';
       refresh();

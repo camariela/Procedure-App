@@ -11,6 +11,11 @@ offline.
 > draft badge until a clinician verifies it. It does not replace local protocols,
 > senior support or clinical judgement.
 
+Spelling is US English throughout, including procedure ids. Ids that changed
+in that conversion are kept as aliases in `src/data/index.js`, so links shared
+before the change — and the deep links inside already-exported calendar
+entries — still resolve.
+
 ## Sourcing
 
 Technique is written in clinical register against standard emergency medicine
@@ -121,7 +126,7 @@ Tailwind is **compiled to a committed file**, never loaded from a CDN: the CDN
 build is a runtime compiler, and an app you open at a bedside has to render with
 no network.
 
-Colour is spent on meaning, never decoration:
+Color is spent on meaning, never decoration:
 
 | Group | Job |
 |---|---|
@@ -132,7 +137,7 @@ Colour is spent on meaning, never decoration:
 | `--sys-*` (twelve) | one hue per organ system |
 
 Each system's hue is assigned once, by `[data-system]` setting `--sys`; rails,
-icons and labels then colour themselves with `bg-sys` / `text-sys` without
+icons and labels then color themselves with `bg-sys` / `text-sys` without
 knowing which system they are in. The twelve hues are spaced so that no two
 systems adjacent in the grid land within 60° of each other.
 
@@ -162,7 +167,11 @@ navigation, search and the offline cache with no other change.
   equipment: [{ item: 'Spinal needle', detail: '22 G atraumatic', optional: false }],
   indications: ['...'],
   contraindications: { absolute: ['...'], relative: ['...'] },
-  steps: [{ text: 'Do this.', caution: 'Shown as a red warning under the step.' }],
+  steps: [{
+    action: 'Do this',          // imperative headline, 3-6 words: what the list shows
+    text: 'Do this, in full.',  // the clinical instruction, folded beneath it
+    caution: 'A warning under the step. Never folded.',
+  }],
   pearls: ['...'],
   complications: ['...'],
   verified: false,                // true removes the "not clinically reviewed" badge
@@ -240,7 +249,7 @@ no backend, has to work on aeroplane mode, and a clinician deserves to see
 exactly why a step was marked missed — so every miss lists the words it looked
 for. Terms that appear in more than half of a procedure's steps are dropped
 automatically, which tunes out medical filler without maintaining a list by
-hand. Spoken numbers are normalised to digits, because sizes, doses, landmarks
+hand. Spoken numbers are normalized to digits, because sizes, doses, landmarks
 and times are the part worth getting right.
 
 **Speech.** Chromium and Safari have the Web Speech API; Firefox does not. Where
@@ -263,6 +272,28 @@ you have that switched on. Nothing leaves the device to produce it.
 If you later want true push or email, that is the piece to add: a small service
 holding push subscriptions and the schedule. The schedule itself already lives
 in `src/lib/rehearsal.js` and is portable.
+
+## Reading a technique under pressure
+
+A thirteen-step algorithm rendered as thirteen paragraphs is unreadable when
+it matters. Every step therefore carries two things: an `action`, which is a
+three-to-six word imperative, and the full clinical `text`.
+
+The list shows actions only, so a whole procedure fits on roughly one screen
+and can be scanned rather than read. The step you are on — the first not yet
+ticked — unfolds its full text automatically, and that fold moves down as you
+tick, so the normal path costs no taps beyond ticking. Any other step opens on
+its chevron.
+
+**Cautions never fold.** They are the part that kills, so they stay on screen
+whatever else is hidden.
+
+Considered and not built: grouping steps under named phases (good for
+orientation, but a second hierarchy to maintain across 37 procedures); a
+one-step-at-a-time focus mode in very large type (better still in a real
+resuscitation, and the obvious next move if this is not enough); pulling doses
+and sizes out as chips (attractive, but it fragments sentences that read
+better whole).
 
 ## Offline
 

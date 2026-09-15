@@ -3,7 +3,7 @@
  * band and the system listing so the three never drift apart.
  *
  * Each row carries `data-system`, which resolves `--sys` to that system's hue;
- * the rail and the system label then colour themselves without knowing which
+ * the rail and the system label then color themselves without knowing which
  * system they belong to.
  *
  * `compact` drops the summary and the badges. It is for the HALO band, where

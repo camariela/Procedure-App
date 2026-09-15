@@ -23,7 +23,7 @@ const TONES = {
   pearl: 'border-info/25 bg-info/8 text-info',
 };
 
-/** Alert-style callout. The tone colours the frame, the title and the markers. */
+/** Alert-style callout. The tone colors the frame, the title and the markers. */
 const callout = (tone, title, items, iconName) => html`
   <section class="rounded-xl border px-4 py-3.5 ${TONES[tone]}">
     <h3 class="flex items-center gap-1.5 font-display text-[0.76rem] font-bold tracking-[0.08em] uppercase">
@@ -55,8 +55,8 @@ const equipmentPanel = (procedure) =>
 const stepsPanel = (procedure) => html`
   <div class="grid gap-4">
     <p class="text-[0.85rem] leading-relaxed text-muted-foreground">
-      The video demonstrates the anatomy; this is the sequence in text. Tick each step as it is
-      completed.
+      Each step leads with the action. Tap a step to tick it; the one you are on shows its full
+      detail, and the chevron opens any of the others.
     </p>
     ${tickList({
       procedureId: procedure.id,
@@ -64,7 +64,8 @@ const stepsPanel = (procedure) => html`
       ordered: true,
       items: procedure.steps.map((step, index) => ({
         key: String(index),
-        primary: step.text,
+        primary: step.action ?? step.text,
+        body: step.action ? step.text : undefined,
         note: step.caution,
       })),
     })}
@@ -91,8 +92,8 @@ const safetyPanel = (procedure) => {
 };
 
 /**
- * Ordered; the first entry is the default panel. `tone` colours the tab's icon
- * so the four panels are told apart by colour as well as by label — the Safety
+ * Ordered; the first entry is the default panel. `tone` colors the tab's icon
+ * so the four panels are told apart by color as well as by label — the Safety
  * tab being the red one is worth something at three in the morning.
  */
 export const SECTIONS = [

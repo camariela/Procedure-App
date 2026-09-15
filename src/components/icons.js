@@ -34,6 +34,7 @@ const PATHS = {
     '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
   keyboard:
     '<rect x="2.5" y="6.5" width="19" height="11" rx="2"/><path d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M6 13.5h.01M18 10h.01M8.5 14h7"/>',
+  chevron: '<path d="M8 10l4 4 4-4"/>',
   search: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/>',
   back: '<path d="M15 5l-7 7 7 7"/>',
   play: '<path d="M8 5.5v13l11-6.5Z"/>',

@@ -16,7 +16,11 @@
  * @property {Array<{item: string, detail?: string, optional?: boolean}>} equipment
  * @property {string[]} indications
  * @property {{absolute?: string[], relative?: string[]}} [contraindications]
- * @property {Array<{text: string, caution?: string}>} steps
+ * @property {Array<{action?: string, text: string, caution?: string}>} steps
+ *                                  `action` is the imperative headline shown in the
+ *                                  list; `text` is the full instruction, folded away
+ *                                  beneath it. A step with no `action` shows its
+ *                                  `text` as the headline instead.
  * @property {string[]} [pearls]
  * @property {string[]} [complications]
  * @property {boolean}  [verified]      Set true once a clinician has reviewed the content.

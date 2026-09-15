@@ -41,7 +41,7 @@ export const simulateIndexView = () => {
         Mental Simulation and Visualization
       </h1>
       <p class="mt-2 text-[0.9rem] leading-relaxed text-muted-foreground">
-        Pick the one you want to work through. Watch it, visualise the anatomy, then talk the
+        Pick the one you want to work through. Watch it, visualize the anatomy, then talk the
         technique through from memory and see what you left out.
       </p>
       <p class="mt-3">

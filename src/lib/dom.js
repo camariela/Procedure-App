@@ -43,7 +43,7 @@ export const qs = (selector, scope = document) => scope.querySelector(selector);
 
 /**
  * Delegated event listener. Keeps views stateless: they emit markup with
- * `data-action` attributes and behaviour is bound once, per view root.
+ * `data-action` attributes and behavior is bound once, per view root.
  */
 export const onAction = (scope, type, handler) => {
   scope.addEventListener(type, (event) => {

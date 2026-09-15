@@ -4,11 +4,11 @@
  * means adding a procedure needs no reindexing.
  */
 
-const normalise = (value) => String(value ?? '').toLowerCase().trim();
+const normalize = (value) => String(value ?? '').toLowerCase().trim();
 
 /** Flatten the fields worth matching on into one haystack string. */
 export const haystack = (procedure) =>
-  normalise(
+  normalize(
     [
       procedure.name,
       ...(procedure.aka ?? []),
@@ -19,10 +19,10 @@ export const haystack = (procedure) =>
 
 /** Higher is better; 0 means no match. */
 const score = (procedure, term) => {
-  const name = normalise(procedure.name);
+  const name = normalize(procedure.name);
   if (name === term) return 100;
   if (name.startsWith(term)) return 80;
-  if ((procedure.aka ?? []).some((alias) => normalise(alias).startsWith(term))) return 70;
+  if ((procedure.aka ?? []).some((alias) => normalize(alias).startsWith(term))) return 70;
   if (name.includes(term)) return 60;
   return procedure.haystack.includes(term) ? 30 : 0;
 };
@@ -32,7 +32,7 @@ const score = (procedure, term) => {
  * match somewhere, so "chest tube" narrows rather than widens.
  */
 export const search = (procedures, query) => {
-  const terms = normalise(query).split(/\s+/).filter(Boolean);
+  const terms = normalize(query).split(/\s+/).filter(Boolean);
   if (!terms.length) return [];
 
   return procedures

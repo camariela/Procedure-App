@@ -8,10 +8,10 @@
  * typing the run-through, which is scored by exactly the same code.
  */
 
-const Recogniser =
+const Recognizer =
   typeof window !== 'undefined' ? window.SpeechRecognition ?? window.webkitSpeechRecognition : null;
 
-export const speechAvailable = () => Boolean(Recogniser);
+export const speechAvailable = () => Boolean(Recognizer);
 
 /**
  * @param {Object} handlers
@@ -21,7 +21,7 @@ export const speechAvailable = () => Boolean(Recogniser);
  * @returns {{start: () => void, stop: () => void}}
  */
 export const listen = ({ onTranscript, onError, onEnd }) => {
-  const recognition = new Recogniser();
+  const recognition = new Recognizer();
   recognition.lang = navigator.language || 'en-GB';
   recognition.continuous = true;
   recognition.interimResults = true;

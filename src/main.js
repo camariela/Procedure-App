@@ -16,7 +16,7 @@ import { procedureView, panelFor } from './views/procedure.js';
 import { rehearseView, rehearseAction } from './views/rehearse.js';
 import { simulateIndexView } from './views/simulate-index.js';
 import { notFoundView } from './views/not-found.js';
-import { ACTION_TICK, ACTION_RESET } from './components/checklist.js';
+import { ACTION_TICK, ACTION_RESET, ACTION_DETAIL, toggleDetail } from './components/checklist.js';
 import { ACTION_PLAY, mountEmbed } from './components/video.js';
 import { ACTION_EXPORT, exportRehearsalCalendar } from './views/home.js';
 
@@ -50,6 +50,11 @@ onAction(app, 'click', (action, target, event) => {
 
   if (action === ACTION_TICK && procedureId) {
     toggle(procedureId, target.dataset.list, target.dataset.key);
+    refreshPanel();
+  }
+
+  if (action === ACTION_DETAIL && procedureId) {
+    toggleDetail(procedureId, target.dataset.list, target.dataset.key);
     refreshPanel();
   }
 

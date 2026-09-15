@@ -66,7 +66,7 @@
 }
 
 /* ── Tokens ───────────────────────────────────────────────────────────────
-   Every colour below is load-bearing. Hue is the fastest thing the eye reads
+   Every color below is load-bearing. Hue is the fastest thing the eye reads
    in a hurry, so it is spent on meaning — how urgent, how rare, how safe,
    which system — and never on decoration. */
 
@@ -111,7 +111,7 @@
   --info: oklch(0.495 0.13 248);          /* pearls: worth knowing, not a warning */
   --complication: oklch(0.475 0.15 330);   /* what it costs when it goes wrong */
 
-  /* Organ systems. A colour per system makes the grid scannable and gives
+  /* Organ systems. A color per system makes the grid scannable and gives
      every procedure page an inherited accent. */
   --sys-airway: oklch(0.55 0.13 225);
   --sys-cardiovascular: oklch(0.55 0.19 15);
